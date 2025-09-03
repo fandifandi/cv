@@ -1,13 +1,15 @@
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === "production";
+const REPO = "cv";                       // ganti kalau nama repo beda
+const base = isProd ? `/${REPO}` : "";
+
 const nextConfig = {
-  // penting: jadikan output statis (generate folder "out")
   output: "export",
-
-  // supaya <Image> tidak butuh optimizer server
   images: { unoptimized: true },
-
-  // optional tapi membantu: matikan sourcemap server
+  basePath: base,
+  assetPrefix: base + "/",
+  env: { NEXT_PUBLIC_BASE_PATH: base },  // bantu prefix utk <img> manual
   productionBrowserSourceMaps: false,
 };
 
-module.exports = nextConfig;
+module.exports = nextConfig;             // <- JANGAN ada "export default ..." di file ini
