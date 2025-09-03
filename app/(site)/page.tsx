@@ -25,9 +25,9 @@ export const dynamic = "force-static";
 const SECTIONS = [
   { id: "hero", label: "Home" },
   { id: "about", label: "About" },
-  { id: "projects", label: "Projects" },
+  
   { id: "timeline", label: "Timeline" },
-  { id: "skills", label: "Skills" },
+  { id: "projects", label: "Projects" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -151,36 +151,38 @@ const carouselItems: ProjectItem[] = [...allProjects]            // atau [...fea
                   </a>
                 </div>
                 <div className="mt-6 grid grid-cols-3 gap-3 text-center">
-                  <div className="rounded-xl frost bg-[color:var(--card)] border border-[color:var(--border)] p-4">
-                    <div className="text-2xl font-bold mono">50+</div>
-                    <div className="text-xs opacity-80">Dashboards</div>
-                  </div>
-                  <div className="rounded-xl frost bg-[color:var(--card)] border border-[color:var(--border)] p-4">
-                    <div className="text-2xl font-bold mono">$3M+</div>
-                    <div className="text-xs opacity-80">Impact</div>
-                  </div>
-                  <div className="rounded-xl frost bg-[color:var(--card)] border border-[color:var(--border)] p-4">
-                    <div className="text-2xl font-bold mono">20+</div>
-                    <div className="text-xs opacity-80">Teams</div>
-                  </div>
-                </div>
+                  
+              <div className="rounded-xl border border-[color:var(--border)] bg-[color:var(--card)] p-4">
+                <div className="text-2xl font-bold text-emerald-400">+8%</div>
+                <div className="text-xs opacity-80">Checkout conversion</div>
+              </div>
+              <div className="rounded-xl border border-[color:var(--border)] bg-[color:var(--card)] p-4">
+                <div className="text-2xl font-bold text-emerald-400">-23%</div>
+                <div className="text-xs opacity-80">Cost/query (BQ)</div>
+              </div>
+              <div className="rounded-xl border border-[color:var(--border)] bg-[color:var(--card)] p-4">
+                <div className="text-2xl font-bold text-emerald-400">5h → 1h</div>
+                <div className="text-xs opacity-80">Insight turnaround</div>
+              </div>
+            </div>
+
               </div>
 
               {/* Dashboard cluster (placeholder tanpa Chart.js dulu) */}
               <div className="grid grid-cols-2 gap-4">
-  <div className="col-span-2 rounded-2xl frost bg-[color:var(--card)] border border-[color:var(--border)] p-4">
-    <div className="flex items-center justify-between">
-      <div className="text-sm text-[color:var(--muted)]">Traffic vs Conversion</div>
-      <div className="text-[10px] text-[color:var(--muted)]">Last 12 mo</div>
-    </div>
-    <LineMini
-      series={[
-        [12,14,13,16,18,21,20,23,22,24,26,28],  // Traffic
-        [1.2,1.3,1.1,1.5,1.7,1.9,1.8,2.0,2.1,2.2,2.4,2.6], // Conv
-      ]}
-      strokeClasses={["stroke-sky-400","stroke-emerald-400"]}
-    />
-  </div>
+                <div className="col-span-2 rounded-2xl frost bg-[color:var(--card)] border border-[color:var(--border)] p-4">
+                  <div className="flex items-center justify-between">
+                    <div className="text-sm text-[color:var(--muted)]">Traffic vs Conversion</div>
+                    <div className="text-[10px] text-[color:var(--muted)]">Last 12 mo</div>
+                  </div>
+                  <LineMini
+                    series={[
+                      [12,14,13,16,18,21,20,23,22,24,26,28],  // Traffic
+                      [1.2,1.3,1.1,1.5,1.7,1.9,1.8,2.0,2.1,2.2,2.4,2.6], // Conv
+                    ]}
+                    strokeClasses={["stroke-sky-400","stroke-emerald-400"]}
+                  />
+                </div>
 
   <div className="rounded-2xl frost bg-[color:var(--card)] border border-[color:var(--border)] p-4">
     <div className="text-sm text-[color:var(--muted)]">Channel Mix</div>
@@ -227,6 +229,21 @@ const carouselItems: ProjectItem[] = [...allProjects]            // atau [...fea
                     BI & Storytelling
                   </div>
                 </div>
+                <div className="mt-6 grid grid-cols-3 gap-3 text-center">
+
+                <div className="rounded-xl border border-[color:var(--border)] bg-[color:var(--card)] p-4">
+                  <div className="text-2xl font-bold text-emerald-400">+8%</div>
+                  <div className="text-xs opacity-80">Checkout conversion</div>
+                </div>
+                <div className="rounded-xl border border-[color:var(--border)] bg-[color:var(--card)] p-4">
+                  <div className="text-2xl font-bold text-emerald-400">-23%</div>
+                  <div className="text-xs opacity-80">Cost/query (BQ)</div>
+                </div>
+                <div className="rounded-xl border border-[color:var(--border)] bg-[color:var(--card)] p-4">
+                  <div className="text-2xl font-bold text-emerald-400">5h → 1h</div>
+                  <div className="text-xs opacity-80">Insight turnaround</div>
+                </div>
+              </div>
               </article>
             </div>
           </div>

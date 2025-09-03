@@ -4,11 +4,9 @@
   "private": true,
   "description": "Afandi — Resume & Portfolio built with Next.js",
   "scripts": {
-    "dev": "next dev -p 3000",
-    "build": "next build",
-    "start": "next start -p 3000",
-    "export": "next build && next export",
-    "postinstall": ""
+    "dev": "next dev",
+    "build": "next build && next export -o out",
+    "start": "next start"
   },
   "engines": {
     "node": ">=18.18"
