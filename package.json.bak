@@ -1,0 +1,32 @@
+{
+  "name": "resume-site",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Afandi — Resume & Portfolio built with Next.js",
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "export": "next build && next export",
+    "postinstall": ""
+  },
+  "engines": {
+    "node": ">=18.18"
+  },
+  "dependencies": {
+    "clsx": "^2.1.0",
+    "next": "^14.2.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.10",
+    "autoprefixer": "^10.4.18",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.4.0",
+    "@types/node": "^20.11.24",
+    "@types/react": "^18.2.66"
+  }
+}
