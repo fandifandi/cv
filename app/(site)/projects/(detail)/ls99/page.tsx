@@ -35,7 +35,7 @@ export default function LS99Page() {
         }}
       >
         {/* Konten bebas (custom): boleh lebih naratif, tabel, dsb */}
-        <h2>Problem DARI PROJECT -> DETAIL -> LS099 </h2>
+        <h2>Problem DARI PROJECT - DETAIL - LS099 </h2>
         <p>Brand belum konsisten; e-commerce tanpa tracking memadai. Target: trust visual & pengukuran funnel end-to-end.</p>
 
         <h2>Goals</h2>
