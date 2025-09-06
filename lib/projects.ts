@@ -1,0 +1,276 @@
+// lib/projects.ts
+import { url } from "inspector";
+import { z } from "zod";
+
+const MetricSchema = z.object({ label: z.string(), value: z.string() });
+const videoSchema = z.object({
+  mp4: z.string(),
+  webm: z.string().optional(),
+  poster: z.string().optional(),
+})
+const GalleryItemSchema = z.union([
+  z.string(),
+  z.object({
+    src: z.string(),                 // path /public/... atau URL penuh
+    alt: z.string().optional(),
+    w: z.number().optional(),        // lebar asli (opsional)
+    h: z.number().optional(),        // tinggi asli (opsional)
+    fit: z.enum(["cover", "contain"]).optional(), // default "cover"
+  }),
+]);
+
+const DetailSchema = z.object({
+  client: z.string().optional(),
+  roles: z.array(z.string()).optional(),
+  stackExtra: z.array(z.string()).optional(), // tambahan selain tags
+  linksDemo: z.array(z.object({ label: z.string(), href: z.string().url() })).optional(),
+  responsibilities: z.array(z.string()).optional(),
+  metrics: z.array(MetricSchema).optional(),
+  sections: z
+    .object({
+      problem: z.string().optional(),
+      goals: z.array(z.string()).optional(),
+      approach: z.array(z.string()).optional(),
+      results: z.array(z.string()).optional(),
+      learnings: z.array(z.string()).optional(),
+    })
+    .optional(),
+  // gallery: z.array(z.string()).optional(), // path /public/...
+  gallery: z.array(GalleryItemSchema).optional(),
+  links: z.array(z.object({ label: z.string(), href: z.string().url() })).optional(),
+  video: videoSchema.optional(),
+  steps: z.array(z.string()).optional(),
+  learnings: z.array(z.string()).optional(),
+  nextSteps: z.array(z.string()).optional(),
+  // website: z.string().url().optional(),
+});
+
+
+
+export const ProjectSchema = z.object({
+  title: z.string(),
+  slug: z.string(),
+  
+  excerpt: z.string(),
+  tags: z.array(z.string()),
+  // website: z.string().url().optional(),
+  year: z.number(),
+
+  cover: z.string().optional(), // /public/...
+  repo: z.string().url().optional(),
+  demo: z.string().url().optional(),
+  featured: z.boolean().default(false),
+  seo: z
+    .object({
+      title: z.string().optional(),
+      description: z.string().optional(),
+    })
+    .optional(),
+  detail: DetailSchema.optional(),
+});
+export type Project = z.infer<typeof ProjectSchema>;
+
+const data: Project[] = [
+{
+  title: "WooCommerce Site",
+  slug: "ls99",
+  // website: "www.larassaras99.com",
+  excerpt: "Website storefront built end-to-end: brand system, product catalog, payments/shipping, and GA4 e-commerce analytics.",
+  tags: ["Branding", "E-commerce", "WooCommerce", "WordPress"],
+  year: 2025,
+  cover: "https://previews.dropbox.com/p/thumb/ACyQB9w6JSZckRhjldKGbFS6avZFyArOmlAU0xxK4QrsHl7QyhKbP4yATK2lcrRxein6puKTc9EvQQ1vUq-T8go5yUdCKJckKBLLupbONgO-V7KsNCcTbMUtvxBY25bqbSsb6Xw_CV3wDb7ms_vDm1mTzTiE0_fp-H0oyzdCRMUYOSR0EffXtxoCHTU0UJrPBTa-42LIjwkf8P4Qn5X_2_ir0FynwWRrXmjUiYWq74BD8njKPv-Z2MGxvpKKVumCWu7pJx-1gkIU9FBHMUWMoEs2htvBWGEa3BJI5jEuHoMeySu6P7Lx5zFPihUyondMw6AFOuHfBXTRJPmZtiEledLo/p.png?is_prewarmed=true",
+  featured: true,
+  detail: {
+    // client: "LS99",
+    // roles: ["Web Developer", "Brand Designer", "Analytics"],
+    // stackExtra: ["WordPress", "GA4", "GTM", "Cloudflare"],
+    responsibilities: [
+      "Brand system: logo, palette, typography, and packaging guidelines",
+      "WooCommerce setup: catalog structure, attributes/variations, and SEO basics",
+      "Payments & shipping: gateway integration, taxes, and shipping rules",
+      "Theme customization (child theme) and performance tuning (cache, images, CDN)",
+      "GA4 e-commerce via GTM (view_item → purchase) + consent & UTM hygiene",
+      "Operational dashboards for sales and SKU performance"
+    ],
+    // ❌ metrics: [ ... ]  <-- HAPUS saja kalau belum ada angka
+    // metrics: [
+    //   { label: "Go-Live", value: "Nov 2024" },
+    //   // { label: "Catalog", value: "50+ SKUs" }
+    // ],
+    sections: {
+      problem:
+        "Brand belum konsisten dan store belum punya tracking yang andal, sehingga funnel sulit dipercaya dan prioritas perbaikan tidak jelas.",
+      goals: [
+        "G1 — Luncurkan WooCommerce storefront yang cepat dengan taxonomy produk yang rapi",
+        "G2 — Aktifkan GA4 e-commerce end-to-end (view → purchase) yang konsisten",
+        "G3 — Sediakan dashboard mingguan untuk review penjualan & promo"
+      ],
+      approach: [
+        "Bangun brand system reusable dan terapkan ke lightweight child theme WooCommerce.",
+        "Strukturkan katalog (atribut/variasi), konfigurasi pembayaran & shipping, plus SEO dasar (title, schema, slugs).",
+        "Implement GA4 e-commerce via GTM dengan event & parameter konsisten; tambah consent mode dan normalisasi UTM.",
+        "Optimasi performa: caching, kompresi gambar, dan CDN (Cloudflare) untuk LCP yang lebih baik terutama di mobile."
+      ],
+      results: [
+        "Store live dengan tracking funnel yang bisa diandalkan (view_item → add_to_cart → begin_checkout → purchase).",
+        "Tim bisa review performa SKU & promo mingguan dari dashboard tanpa ad-hoc exports.",
+        "PDP lebih jelas (shipping/trust markers/sticky CTA) sehingga drop-off berkurang di step kritikal."
+      ],
+      learnings: [
+        "Taxonomy & atribut yang konsisten memudahkan navigasi dan analisis.",
+        "Perbaikan kecil di PDP (copy, info pengiriman, trust) punya dampak kumulatif ke add-to-cart & checkout.",
+        "Materialisasi laporan mingguan mengurangi fire drill dan mempercepat pengambilan keputusan."
+      ]
+    }
+    ,gallery: ["https://previews.dropbox.com/p/thumb/ACzJuQck92QLPKg22GmekdDmQKu_Fwretex27nap_r0fTie1pR5XuiuBKgz_2QLxvNWK02f_1Vr9-EbkrxPRXInnj722x9by2ciOGIi1YOz7Gg4KGp-34Cj0o8eech0N7DhP52dNwuIytCQGWk-ZoM0Chl82yrGQgwb1FmsWz8bctYYqy7hPBg9T3kw9SJXfs8p4XJ7vkFt1Y25FwcY6lqvuuHE9fSyhtEdC2u7Cj1iIgBMrKaFfMNBLsCHEx2hIdUNQwoqq4uibucLtur2noBC-zmDVOLx1iFpniEs-AEzuG7Nn6dyy6vdZ8WVnncGnQ3ApSbS2b5sAvY3JXfV_ZhzH/p.png?is_prewarmed=true"
+      , "https://previews.dropbox.com/p/thumb/ACxvcgfD6sjoJbCAAInYQgtCN2-wSYGSnf4puvQJ21Z9DibXVNruVNlPoIKeXXpILsJmWMkCfomfyZqeVEJHiC_rMXGPxoeDH6BK12VVBn99xWkBOOOGWVQyGOUW1M36IjCdxvYxEy9SzmH86iy-EnNV3CbSic0dA_qJUytOKXlGoUpKMX9VA6mLAxkV1wj28pnuf17GSowS-IhUxprqduPBv59DyU2_-jUl_h4zsTqdaZZcDs4fNxh4ZKtFHBuL9ML5Ivwx2GiQp9cIHoKjJTaj05G3ewN5hrik5FdWzQqQgeu8SsC5fGGVcCZrBoUpTV3ENp3gCR6vWQPzvLY30Nqm/p.png?is_prewarmed=true"
+      ,"https://previews.dropbox.com/p/thumb/ACxbXn-L54yG3f5qfAPFZbwsyAMPtAv28QhZlJIQs9tbpkw-OPJ1uKZnemojgFNUehLOq_-AAPkAUsNRlE_Z-Lqjg57Vp-Oz1k77oLVcvBieQvnqK9TKZdZMP1PjwmxSHnythSwjTdrxI9omxh6RHt-I9OM7vnOQamE31lWmGfjyIVHnfAsbjW3NEXA2bd-pjzZ0T2XExdTDMykvAVRJmYO-FuYfGImdH7WvMs_GViJ0_28ofx_-OFnBU7-Nxw5Nn_Gz94vLQZo8OwkRlX9Yy1M9xbV--0C0wxyfUILQY-LsmKNOL52lBhQoL80raFgXgL86yJtMAS0f50Rcw133_ZZu/p.png?is_prewarmed=true"
+
+    ]
+  }
+},
+  {
+    title: "Statistik Prakerja",
+    slug: "analytics-pkj",
+    excerpt: "The Prakerja Statistics website provides data on the program's implementation from 2020 to 2024, covering participant demographics, training options, and incentive distribution, showcasing its impact on workforce development in Indonesia.",
+    tags: ["Data Visualization","Python","Airflow","AnalyticDB","GeoJSON"],
+    year: 2024,
+    cover: "https://raw.githubusercontent.com/Kartu-Prakerja/laporan-penerima/main/img/img-cover-statistik-prakerja.png",
+    featured: false,
+    detail: {
+      client: "Internal Ops",
+      roles: [],
+      stackExtra: ["Kepler.gl", "BigQuery"],
+      responsibilities: [
+        "Frame stakeholder questions and define metrics & data dictionary",
+        "Design geo and demographic models with privacy-safe anonymization",
+        "Orchestrate ETL in Airflow for incremental loads and backfills",
+        "Optimize warehouse tables with partitioning, clustering, and summaries",
+        "Generate vector tiles/GeoJSON and implement edge caching",
+        "Build a map-first UI with filters, drill-downs, and permalinks",
+        "Enable one-click exports (PNG/SVG/CSV) with clear footnotes and metadata",
+        "Establish release process, changelogs, and coverage documentation",
+      ],
+      // metrics: [
+      //   { label: "TAT insight", value: "−4 hari" },
+      //   { label: "Query cost", value: "−28%" },
+      // ],
+      sections: {
+        problem:
+          "Operasional butuh peta permintaan real-time ringan untuk alokasi armada.",
+        goals: [
+          "G1 — Update tiles tiap 15 menit",
+          "G2 — < 1s interaksi panning/zoom",
+        ],
+        approach: [
+          "Pre-aggregation hourly + cache tiles.",
+          "Deck.gl layers untuk interaksi ringan.",
+        ],
+        results: [
+          "Dispatch berhasil kurangi wait time p95 sebesar 9%.",
+          "Dashboard dipakai 3 tim (ops, CX, growth).",
+        ],
+        learnings: [
+          "Pre-agg lebih hemat daripada kueri mentah per interaksi.",
+          "UX peta perlu throttling pointermove untuk low-end device.",
+        ],
+      },
+      gallery: [
+        "https://uce3baf08fa0e76d731c72febd9f.previews.dropboxusercontent.com/p/thumb/ACykmBjCiXp4aGM28nzv5BWf0S0GYbGkVxpcJwOzhDeSApLYYDNtF7RmosOj8n0eEgcmcjEsUn12E3HG0rW9dtYsBw8FMc1TDULdTF_5WP-o5lI_fEx6Dk96NR9cYt6xbho3CRZGxYV8vO16m_sAVCT6P6R-dM4S5jICm60nn6C9I1X8iZoTzWWDlBAH7arEcRNa3C_2oae4faVwLJTdIcQW9xicpvIkSSHUV5lp0pIXoYdv6j-KedmDZ9skc_V7AiMR5XSVlP3m5GCT0hNSuaP2a1aRWcteqRMw62YcyJlD_PJaHErenj3UBSKDHqic6t2Sx7DmUGzYa0w1y3H6-kTXxSJ3W468ZNv3u0VjaMW3BRipLxZiFbzmKRT6QzSwkZg/p.png?is_prewarmed=true"
+        ,"https://uc108c623bc05d368f5213e60f18.previews.dropboxusercontent.com/p/thumb/ACyG3WJKwGIdtojwHdsQB7kw9ceRSCNRtgFXm7PHt3eQ-3xhsIVM7YqXwzCwknMuudKHnU__RGnS0D74W6qZkPDw4J3NgLXsczsDpR0ngbBzvz7ENhhKakw-7s7h0f4PYsFPOUAjBlGnmeRftMf36ObNC-8rngR73eD-wP1cy8SULoUO2T2sCS0vMtoZCs3hLEy7ENvPDeXf7oF9iuLjCI0j4eybkHSBG9DCNe-RlFUiVy6zSEKfZ5SYxU4UzY-HlwryjMSihmqTsGlYAKPmWltDsUE027HViWCXdYH_aDbO4l3L9s--ocZm5JOwvMitc0BIMfowiBLOCCjP1gFNtL2d9Sh5y_J1NUSdDAp5cTvZSoaizEoGD6G7NgwK6SCMGww/p.png?is_prewarmed=true"
+        ,"https://uc398f3f626cef62ae7fac22255a.previews.dropboxusercontent.com/p/thumb/ACyzGTMj2df_8fhm-SZkbmR3QSaG79WAhsSzMBrFyaDlh24osdbHf_xy2cVBww1uQgnXRP162HQEqpTawLsE4ruuRwcDvv_rMZPddtiMhb5fzQH6J7k5g3cKHSqvmSHkprUF5NXvlsq09ZfhNqAR3CNgmdK0cmoazx7pBPFCcdwPClKRh-IAnGaJQGm8VToWDcY0UF3Bs1ejRljyw-YaLYLd5rQP5FDWzuf9loag9kZfLQHpwltkEjvwXi4_G2iRdPHQT4WWDDtKJrW87dwsl-cg0z5-gxTSFGsnvYQ4rBi2HkuxAqAVJBAb8M58MRUTwioUwMQWnzeffHGgsMd7RpDGTVyOQmncNT9bwnOrRpBrTohdq7XnMw0Z_U16lRAmGCM/p.png?is_prewarmed=true"
+      ],
+      video: {
+        mp4: "",
+        webm: "https://dikaseva.com/asset/works/statistik-prakerja/statistik-prakerja.webm",
+        poster: "https://dikaseva.com/asset/works/statistik-prakerja/thumb-statistik-prakerja-xs.webp",
+      },
+    },
+  },  
+  {
+    title: "Sejalan, Setujuan",
+    slug: "rmc-app",
+    excerpt: "Find People Going Your Way. A transport alternative that pairs demand with available seats in real time. Search is tuned for route overlap and time windows to surface the best companions first.",
+    tags: ["FastAPI", "PostgreSQL","Firebase", "Google Cloud Run", "GeoJSON", "Leaflet Map", "NeonDB"],
+    year: 2024,
+    cover: "https://uc19ac31bc98254b171ca2b72c8c.previews.dropboxusercontent.com/p/thumb/ACz1mQcRwd28-dT1EZ_RiYF1PZ6_Ijoa2qkX5nGbxXUHhgiDz21FmcCKotvKJhEI_ObA2VzPCqAuufxZAPDC1cc8lwILqNACsCjUP6WCbGd462G9UhozMclN8cVsVan5mA1moNUUnn9L4p8kLNt637bFAcXQUAk5OIPnMkk7YARexp6YYoWtaQ80dZQFvPumhzPyKg7HtzRjUcpOPrCMRbsC3SwqVrI2gQB8yEAVwP7KdErZojH4_66WUsKdAHgQKI55cE4ytoX80VGGt1by2FvnohhsSKCoXHghko-f8EJPzXp27KxvXbQpFvfgs_ZZXYck_ZjkqL6VmyndliUkMNW0SYt5A1CLVPq2YK8Np8xNhV2jUPOU3p2VtkTqT9t8oM8/p.png?is_prewarmed=true",
+    featured: false,
+    detail: {
+      // client: "Internal Ops",
+      roles: [],
+      stackExtra: ["Kepler.gl", "BigQuery"],
+      gallery: ["https://uc526298e800bd1a234c55d47a32.previews.dropboxusercontent.com/p/thumb/ACxavBJXY0A6hWCLneqHVSqq64MdGowOup1_UMSkbTQ6-1mZxLh0Umik8ZcIaZ_dq8CLy0MrXtqpV6w9tooENcpEKb7qUI1HC3e_JHsYvLY1P-kMX2vBZ-HYkZWatwdFdKXxl6t5a8Oi2d0Of3ZqZrpIfK6-pzXmuK09zoGyBULVRkCHPjYjqFCH4AJn4INuQLIcNPZodzUvlrxZuMcMPEshtRm71zEdk1jo_oZCR21qOQ03N8nBOCJ1zwySks6RuwdQF_bZbIGQTgI7MBgKVa0DeeRmgFfkHNSPNJCJmr8WTytPssUGzDCdaEYGmK6ABa2KZhg7KgWOM3tQ_iOjGTwIDPHH09407t-tjnVyX3l-n4fD6ULKeE86irB4_p6Lnu8/p.png?is_prewarmed=true"
+        , "https://uc1b8d38ccc732a3239ef27e276d.previews.dropboxusercontent.com/p/thumb/ACx2pNJV2ocjyFjZ6sr8iQADTP7obzB8JiDRnR5LxNKe8Jvk6J4kIuV5cz4uV28loj87IxJYXqGJ9GRtqK2Vn8Pn8zBCoZ0NCz3dF8bOrfRz0ZKP3iOeNl2F2hh_0aUefvmcFLjm0JcZFPw_Jc8WkMzqNwA4Ji7cFeQYhDofMXu1yTQwjO4A1RUSMicxcbL7PB-SZOGSRkiOxeTp70JlzXwF1F1ZiHt_8NKFNNURsVRp2-XRgf4ZpU2E-nzUT0PrwaedHoC_31T7Lj_TJz_0LbkKIbGVR38hARJwp_OE-NWRXugr3DY8zO-xvj5-wqH431kIoQpU7hYv3vBg_xcy4bnH6ZQlncxXLXHA5m-V65eW2zx9MTggv0CMUXSPCfu_IJg/p.png?is_prewarmed=true"
+        , "https://uc26ede378edb3a008be4a0ac007.previews.dropboxusercontent.com/p/thumb/ACxoqi-EOmK6kXkQwgyvx68jXDGT179nTtI4vPzVQq6klKS1qP2W9V-dd1fA5ap5R1asnqGeap8KKg8UM8vgFOM6zBy3Gs2Q8eNm_qhQPYzvn3t6feVGQE8_Hi92k92sZnIxskR208blz4y-wiSgK0LTcf5tWCfBRqBNDhXLJl2XzvAeB9Qmz1mVQWZbKN8lezcg4NfUOJP5iSuOp7wKhSyGAs59NbAEHAnkX2EDeUOgPI6Vle6i9Pvwn_sfGAr6J_U_1xhJ7UF3EFYGDJTATuB5aOt0wXBRoN8H3T_6v-cPKTzR3HIE1owUZFueBM0yFmPghUNdE-nAx8hepFb45UBeJLPBP6fOZnQYgJz-YeKYvBv4o5crK0nUiy3bZug5or8/p.png?is_prewarmed=true"
+        , "https://uc61ff5c631314a2c5c1e33ff5c3.previews.dropboxusercontent.com/p/thumb/ACwHHmfP5h-fJL5J0li2ExLu4MxDmOaEqILLf97qfE9bjnNfR91oyOJNxgIBZvXHwFLjWC3d5pXUovMgdqcLIc6Ay5iZ643zWDN3MOgrtLGbsl-g2xJHmz0OGx-yk_WNY0Zj8Ynq9deUvHHNX47fo8oecnm-5Z9ROVqt5dDMMNwdW9p9oo4iSGECMhzcj3KIyrPtVCnYrRrwDTncJ7LOJrXLG2c6gJnA3oQcnnKpYzC1s1OH4u-SRzirAe4i0Ggo8jA__RO67e5xfwp8eesZEkGAO8sQHD0HG9QHis0la8SPblaZ_YUNuP40LGEK5UJ3AEhDY5VjjQqWGcduMCjUvRTuzrL7P_g_6dzawKuevEbWZF8deQf9GGceFtGKvkjVQmM/p.png?is_prewarmed=true"
+        ,"https://uc72f769897a42006338b3c72033.previews.dropboxusercontent.com/p/thumb/ACxet9prXeB4fN89V1BGPYq8LAZhm3cvOZ_ta1iPDJoP1B9JxguvRxNsRsFMdHz4gGUMr3_p2ZTATmSB4QzRkVSIBwcCFRaVR6vo1PzZXi0OOebeVW0PcHfjqfvQBB5DPf95nBkKNWbePvPBrxO9eypJIaa8fWWu2cEdIL1p8HGgFBG0r32Ob3MUGRe3cch7nVrpmiq8ZPgYoJPpAcMH0o5_DpIb8JAj4cXmRu3YHX_7Y769IHbLVsj0DDcKDCp6vnRn-XOF0Xa14glFUPXXm-RWdkRBrP7ZlRuPG7pZ8k6_azEDdDnRuQ8JQiyHgGttwuG7FCgCSrNycPBb-oYx0LFMw8meHJbm0kOV2eywmfPMSlxCu3TZ2Exr8hngBNv8--E/p.png?is_prewarmed=true"
+        ,"https://uc4b416dd86804bb06df938efe12.previews.dropboxusercontent.com/p/thumb/ACwpc8LDmHnBlrRUObT6mQBWXIXmHHeLQkF9xUKn4gBb7669XhbxvFOA33XTu-SxHYyAbNU7jZO0SgqEWTbWWz4gnDpMj3nQfAg3SDRzae8Zp71iy-BrXZHZ-Kjo0oWC7FD0MPiBQLjhujxDqjzrRC-nIzAAaMjOn5Y2MwTZAFI6_-04WmHKPHgDnGxegGZQQa8aKwWuxd3AHsZLslxY2APplSxeqX7Re7TPg-M1qj6wn_vqHP3BjhRnKezAetkHPn67NjhQhotv7dd-eOdAtM_q-h7Z1EyqHWoNUTu46QZd--x8mpn5NHMJXDsmkF9lkuNkogefGi97gMpPFBiOklUA5iPt1E1JxVJb9LLTci67BvJU9RSfjiufrJoU4cVSq8k/p.png?is_prewarmed=true"
+      ],
+      video: {
+        mp4: "",
+        webm: "https://dikaseva.com/asset/works/statistik-prakerja/statistik-prakerja.webm",
+        poster: "https://dikaseva.com/asset/works/statistik-prakerja/thumb-statistik-prakerja-xs.webp",
+      },
+    },
+  },
+  {
+    title: "Coming Soon - Data App",
+    slug: "static-project",
+    excerpt: "The Prakerja Statistics website provides data on the program's implementation from 2020 to 2024, covering participant demographics, training options, and incentive distribution, showcasing its impact on workforce development in Indonesia.",
+    tags: ["Data Visualization","Python","Airflow","AnalyticDB","GeoJSON"],
+    year: 2024,
+    cover: "https://raw.githubusercontent.com/Kartu-Prakerja/laporan-penerima/main/img/img-cover-statistik-prakerja.png",
+    featured: false,
+    detail: {
+      client: "Internal Ops",
+      roles: [],
+      stackExtra: ["Kepler.gl", "BigQuery"],
+      responsibilities: [
+        "Data model untuk event geospasial",
+        "Layer heatmap/density + time window",
+        "Guardrail biaya BQ (partisi & cluster)",
+      ],
+      metrics: [
+        { label: "TAT insight", value: "−4 hari" },
+        { label: "Query cost", value: "−28%" },
+      ],
+      sections: {
+        problem:
+          "Operasional butuh peta permintaan real-time ringan untuk alokasi armada.",
+        goals: [
+          "G1 — Update tiles tiap 15 menit",
+          "G2 — < 1s interaksi panning/zoom",
+        ],
+        approach: [
+          "Pre-aggregation hourly + cache tiles.",
+          "Deck.gl layers untuk interaksi ringan.",
+        ],
+        results: [
+          "Dispatch berhasil kurangi wait time p95 sebesar 9%.",
+          "Dashboard dipakai 3 tim (ops, CX, growth).",
+        ],
+        learnings: [
+          "Pre-agg lebih hemat daripada kueri mentah per interaksi.",
+          "UX peta perlu throttling pointermove untuk low-end device.",
+        ],
+      },
+      gallery: [
+        "https://uce3baf08fa0e76d731c72febd9f.previews.dropboxusercontent.com/p/thumb/ACykmBjCiXp4aGM28nzv5BWf0S0GYbGkVxpcJwOzhDeSApLYYDNtF7RmosOj8n0eEgcmcjEsUn12E3HG0rW9dtYsBw8FMc1TDULdTF_5WP-o5lI_fEx6Dk96NR9cYt6xbho3CRZGxYV8vO16m_sAVCT6P6R-dM4S5jICm60nn6C9I1X8iZoTzWWDlBAH7arEcRNa3C_2oae4faVwLJTdIcQW9xicpvIkSSHUV5lp0pIXoYdv6j-KedmDZ9skc_V7AiMR5XSVlP3m5GCT0hNSuaP2a1aRWcteqRMw62YcyJlD_PJaHErenj3UBSKDHqic6t2Sx7DmUGzYa0w1y3H6-kTXxSJ3W468ZNv3u0VjaMW3BRipLxZiFbzmKRT6QzSwkZg/p.png?is_prewarmed=true"
+        ,"https://uc108c623bc05d368f5213e60f18.previews.dropboxusercontent.com/p/thumb/ACyG3WJKwGIdtojwHdsQB7kw9ceRSCNRtgFXm7PHt3eQ-3xhsIVM7YqXwzCwknMuudKHnU__RGnS0D74W6qZkPDw4J3NgLXsczsDpR0ngbBzvz7ENhhKakw-7s7h0f4PYsFPOUAjBlGnmeRftMf36ObNC-8rngR73eD-wP1cy8SULoUO2T2sCS0vMtoZCs3hLEy7ENvPDeXf7oF9iuLjCI0j4eybkHSBG9DCNe-RlFUiVy6zSEKfZ5SYxU4UzY-HlwryjMSihmqTsGlYAKPmWltDsUE027HViWCXdYH_aDbO4l3L9s--ocZm5JOwvMitc0BIMfowiBLOCCjP1gFNtL2d9Sh5y_J1NUSdDAp5cTvZSoaizEoGD6G7NgwK6SCMGww/p.png?is_prewarmed=true"
+        ,"https://uc398f3f626cef62ae7fac22255a.previews.dropboxusercontent.com/p/thumb/ACyzGTMj2df_8fhm-SZkbmR3QSaG79WAhsSzMBrFyaDlh24osdbHf_xy2cVBww1uQgnXRP162HQEqpTawLsE4ruuRwcDvv_rMZPddtiMhb5fzQH6J7k5g3cKHSqvmSHkprUF5NXvlsq09ZfhNqAR3CNgmdK0cmoazx7pBPFCcdwPClKRh-IAnGaJQGm8VToWDcY0UF3Bs1ejRljyw-YaLYLd5rQP5FDWzuf9loag9kZfLQHpwltkEjvwXi4_G2iRdPHQT4WWDDtKJrW87dwsl-cg0z5-gxTSFGsnvYQ4rBi2HkuxAqAVJBAb8M58MRUTwioUwMQWnzeffHGgsMd7RpDGTVyOQmncNT9bwnOrRpBrTohdq7XnMw0Z_U16lRAmGCM/p.png?is_prewarmed=true"
+      ],
+      video: {
+        mp4: "",
+        webm: "https://dikaseva.com/asset/works/statistik-prakerja/statistik-prakerja.webm",
+        poster: "https://dikaseva.com/asset/works/statistik-prakerja/thumb-statistik-prakerja-xs.webp",
+      },
+    },
+  }
+
+];
+
+// normalize and export helpers
+export const allProjects: Project[] = data.map((p) => ProjectSchema.parse(p));
+export const featuredProjects = allProjects.filter((p) => p.featured);
+export const slugs = allProjects.map((p) => p.slug);
+export const getProjectBySlug = (slug: string) => allProjects.find((p) => p.slug === slug);

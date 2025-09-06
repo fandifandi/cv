@@ -1,0 +1,40 @@
+
+
+# 2) Revert balik ke commit tertentu (membatalkan semua perubahan sejak <COMMIT_ID> sampai HEAD)
+#    Catatan: gunakan <COMMIT_ID>^..HEAD agar <COMMIT_ID> ikut dibatalkan.
+git revert --no-edit <COMMIT_ID>^..HEAD
+
+# 3) Kalau ada konflik, selesaikan lalu:
+# git add -A
+# git commit --no-edit
+
+# 4) Push hasil revert
+git push
+
+#### #### #### ####
+
+069bb9cf208ea32fc3b2097fad38cdd1f2beb9ff
+
+# 0) (opsional) backup dulu
+git fetch origin
+git tag backup-$(date +%F-%H%M)
+git push --tags
+
+# 1) buat branch orphan (tanpa history)
+git checkout --orphan fresh-start
+
+# 2) commit semua file saat ini sebagai "awal baru"
+git add -A
+git commit -m "Initial commit"
+
+# 3) ganti branch orphan jadi main (hapus main lama lokal)
+git branch -D main || true
+git branch -m main
+
+# 4) timpa remote (hapus semua riwayat di origin/main)
+git push -f origin main
+
+# 5) (opsional) hapus semua tag di remote juga
+git tag -l | xargs -r -n1 git tag -d
+git ls-remote --tags origin | awk '{print $2}' | sed 's#refs/tags/##' | xargs -r -n1 git push --delete origin
+
