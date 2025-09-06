@@ -3,6 +3,7 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { ANALYTICS_ENABLED } from "@/lib/analytics-config";
 
 export default function ThemeIconToggle() {
   const { resolvedTheme, setTheme } = useTheme();
@@ -11,14 +12,35 @@ export default function ThemeIconToggle() {
   if (!mounted) return null; // hindari hydration mismatch
 
   const isDark = resolvedTheme === "dark";
+  const fromTheme = isDark ? "dark" : "light";
+  const toTheme = isDark ? "light" : "dark";
+  const location = "header"; // ubah kalau perlu
+
+  const onToggle = () => {
+    setTheme(toTheme);
+    if (ANALYTICS_ENABLED && typeof window !== "undefined") {
+      (window as any).gtag?.("event", "theme_toggle", {
+        from: fromTheme,
+        to: toTheme,
+        location,
+        transport_type: "beacon",
+      });
+    }
+  };
 
   return (
     <button
       type="button"
-      onClick={() => setTheme(isDark ? "light" : "dark")}
-      aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
-      title={`${isDark ? "Light" : "Dark"} mode`}
+      onClick={onToggle}
+      aria-label={`Switch to ${toTheme} mode`}
+      title={`${toTheme.charAt(0).toUpperCase() + toTheme.slice(1)} mode`}
       className="group rounded-full border border-[color:var(--border)] bg-[color:var(--card)]/80 backdrop-blur px-2 py-2 shadow-sm hover:bg-[color:var(--card)] focus:outline-none focus:ring-2 focus:ring-emerald-400/50"
+      // data-* agar ClickTracker (kalau ada) juga menangkap
+      data-gtag-event="theme_toggle"
+      data-gtag-param-from={fromTheme}
+      data-gtag-param-to={toTheme}
+      data-gtag-param-location={location}
+      data-gtag-param-variant="icon"
     >
       <span className="relative block w-4 h-4">
         {/* Sun */}

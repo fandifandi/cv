@@ -2,12 +2,16 @@
 import Script from "next/script";
 import { Suspense, useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
+import { ANALYTICS_ENABLED } from "@/lib/analytics-config";
 
 // ⬅️ HARD-CODE DI SINI
 const GA_ID = "G-SB5EMM564G"; // ganti dgn ID kamu
 
+
+
 export default function Analytics() {
-  if (!GA_ID) return null;
+  if (!ANALYTICS_ENABLED || !GA_ID) return null;
+
   return (
     <>
       <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
@@ -20,8 +24,6 @@ export default function Analytics() {
           gtag('config', '${GA_ID}', { send_page_view: false });
         `}
       </Script>
-
-      {/* bagian yang pakai router hooks wajib dibungkus Suspense */}
       <Suspense fallback={null}>
         <SendPageView />
       </Suspense>
@@ -34,12 +36,12 @@ function SendPageView() {
   const search = useSearchParams();
 
   useEffect(() => {
-    let tries = 0;
-    const max = 20, delay = 250;
+    if (!ANALYTICS_ENABLED) return;
     const fire = () => {
       const gtag = (window as any).gtag;
-      if (!gtag) { if (tries++ < max) return void setTimeout(fire, delay); return; }
-      const page_path = window.location.pathname + (window.location.search || "") + (window.location.hash || "");
+      if (!gtag) return;
+      const page_path =
+        window.location.pathname + (window.location.search || "") + (window.location.hash || "");
       gtag("event", "page_view", {
         page_path,
         page_location: window.location.href,

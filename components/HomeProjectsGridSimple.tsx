@@ -66,7 +66,7 @@ export default function HomeProjectsGridSimple({ projects }: { projects: Project
       {/* Header + See all */}
       <div className="flex items-center justify-between gap-4">
         <h2 className="text-3xl font-bold">Projects</h2>
-        <Link href="/projects" className="shrink-0 text-sm ...">See all →</Link>
+        <Link href="/projects" data-gtag-event="see_all" data-gtag-param-location="projects" data-gtag-param-variant="primary" data-gtag-param-target="section_viewed" className="shrink-0 text-sm ...">See all →</Link>
 
       </div>
 

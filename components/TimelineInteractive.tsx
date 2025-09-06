@@ -98,6 +98,9 @@ export default function TimelineInteractive({
                 {t.href && (
                   <Link
                     href={t.href}
+                    data-gtag-event="view_details_clicked"
+                    data-gtag-param-location="about_me"
+                    data-gtag-param-variant="link"
                     className="inline-flex items-center gap-1 mt-2 text-sm text-emerald-400 hover:underline"
                   >
                     View details <span aria-hidden>↗</span>

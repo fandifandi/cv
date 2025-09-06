@@ -26,6 +26,7 @@ import { CV_DOWNLOAD, CV_VIEW } from "@/lib/links";
 import Footer from "@/components/Footer";
 import { Suspense } from "react";
 
+
 export const dynamic = "force-static";
 
 
@@ -150,6 +151,9 @@ export default function HomePage() {
           rel="noopener noreferrer"
           aria-label="GitHub"
           title="GitHub"
+          data-gtag-event="github_clicked"
+          data-gtag-param-location="navbar"
+          data-gtag-param-variant="icon"
           className="inline-flex items-center justify-center size-9 rounded-full border border-[color:var(--border)] hover:bg-[color:var(--card)] focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/50 transition"
         >
           <GitHubGlyph className="w-4 h-4" />
@@ -161,6 +165,9 @@ export default function HomePage() {
           rel="noopener noreferrer"
           aria-label="LinkedIn"
           title="LinkedIn"
+          data-gtag-event="linkedin_clicked"
+          data-gtag-param-location="navbar"
+          data-gtag-param-variant="icon"
           className="inline-flex items-center justify-center size-9 rounded-full border border-[color:var(--border)] hover:bg-[color:var(--card)] focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/50 transition"
         >
           <LinkedInGlyph className="w-4 h-4" />
@@ -187,16 +194,21 @@ export default function HomePage() {
                         From signal to strategy: clear metrics, thoughtful experiments, and outcomes that matter. Alignment comes first, evidence follows, and product choices are tracked to adoption, retention, and revenue.
                       </p>
                       <div className="mt-6 flex flex-wrap gap-3">
-                        <a href="#projects" className="px-4 py-2 rounded-xl bg-gradient-to-r from-teal-400 to-violet-500 font-semibold">
+                        <a href="#projects" data-gtag-event="explore_worked_viewed" data-gtag-param-location="hero" data-gtag-param-variant="primary" data-gtag-param-target="section_viewed" className="px-4 py-2 rounded-xl bg-gradient-to-r from-teal-400 to-violet-500 font-semibold">
                           Explore Work
                         </a>
-                        <a href="#contact" className="px-4 py-2 rounded-xl frost border border-[color:var(--border)]">
+                        <a href="#contact" data-gtag-event="contact_viewed" data-gtag-param-location="hero" data-gtag-param-variant="primary" data-gtag-param-target="section_viewed" className="px-4 py-2 rounded-xl frost border border-[color:var(--border)]">
                           Contact
                         </a>
+
                         <a
                             href={CV_VIEW}
                             target="_blank"
                             rel="noopener noreferrer"
+                            data-gtag-event="cv_viewed"
+                            data-gtag-param-location="hero"
+                            data-gtag-param-variant="primary"
+                            data-gtag-param-target="cv_viewed"
                             className="px-4 py-2 rounded-xl border border-[color:var(--border)] hover:bg-[color:var(--card)]"
                           >
                             VIEW CV (PDF)
@@ -310,6 +322,25 @@ export default function HomePage() {
                 { label: "X", href: "https://x.com/hifandii" },
                 { label: "Instagram", href: "https://www.instagram.com/fandifandii" },
                 { label: "CV", href: CV_DOWNLOAD },
+                // Tambah WhatsApp (override event & param GA)
+                /* {
+                  label: "WhatsApp",
+                  href: "https://wa.me/62?text=Hi%20Afandi%2C%20saya%20lihat%20portfolio%20Anda...",
+                  gtagEvent: "outbound_click",
+                  gtagParamLocation: "contact_page",
+                  gtagParamVariant: "link",
+                }, */
+                // // Tambah Calendly (override event & param GA)
+                /*
+                {
+                  label: "Calendly",
+                  href: "https://calendly.com/afandi/30min",
+                  gtagEvent: "outbound_click",
+                  gtagParamLocation: "contact_page",
+                  gtagParamVariant: "primary",
+                },
+                */
+                
               ]}
             />
             
