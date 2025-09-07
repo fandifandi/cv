@@ -42,7 +42,7 @@ export default function Page() {
         quick={{
           client: "Personal Project",
           roles: ["WebApp Development", "Data Engineering","Full-Stack Development"],
-          website: "https://routemate.pages.dev/",
+          website: "https://sejalansetujuan.com",
 
           stackExtra: ["PostgreSQL","Firebase", "Google Cloud Run", "GeoJSON", "Leaflet Map", "NeonDB"], // Kepler.gl/Deck.gl
 
