@@ -104,7 +104,7 @@ export default function Page() {
           </li>
           <div className="relative w-full aspect-[16/9]">
             <Image
-              src="/assets/ls99/ls-ga.webp"
+              src="/cv/assets/ls99/ls-ga.webp"
               alt="LS-99 storefront"
               fill
               sizes="100vw"
