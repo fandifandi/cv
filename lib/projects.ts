@@ -200,9 +200,9 @@ const data: Project[] = [
       // client: "Internal Ops",
       roles: [],
       stackExtra: ["Kepler.gl", "BigQuery"],
-      gallery: ["/assets/sejalan/Sejalan1.webp"
+      gallery: ["/assets/sejalan/sejalan1.webp"
          ,"/cv/assets/sejalan/sejalan8.webp"
-        , "/cv/assets/sejalan/Sejalan2.webp"
+        , "/cv/assets/sejalan/sejalan2.webp"
          ,"/cv/assets/sejalan/sejalan7.webp"
         , "/cv/assets/sejalan/sejalan3.webp"
         , "/cv/assets/sejalan/sejalan5.webp"
