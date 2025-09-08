@@ -78,7 +78,7 @@ const data: Project[] = [
   excerpt: "Website storefront built end-to-end: brand system, product catalog, payments/shipping, and GA4 e-commerce analytics.",
   tags: ["Branding", "E-commerce", "WooCommerce", "WordPress"],
   year: 2025,
-  cover: "/assets/ls99/ls-home.webp",
+  cover: "/cv/assets/ls99/ls-home.webp",
   featured: true,
   detail: {
     // client: "LS99",
@@ -124,8 +124,8 @@ const data: Project[] = [
     }
     ,gallery: ["/assets/ls99/ls-shop.webp"
      
-      ,"/assets/ls99/ls1.webp"
-       , "/assets/ls99/ls-blog.webp"
+      ,"/cv/assets/ls99/ls1.webp"
+       , "/cv/assets/ls99/ls-blog.webp"
 
     ]
   }
@@ -136,7 +136,7 @@ const data: Project[] = [
     excerpt: "The Prakerja Statistics website provides data on the program's implementation from 2020 to 2024, covering participant demographics, training options, and incentive distribution, showcasing its impact on workforce development in Indonesia.",
     tags: ["Data Visualization","Python","Airflow","AnalyticDB","GeoJSON"],
     year: 2024,
-    cover: "/assets/statistik-pkj/statistik-pkj-hero.png",
+    cover: "/cv/assets/statistik-pkj/statistik-pkj-hero.png",
     featured: false,
     detail: {
       client: "Internal Ops",
@@ -177,14 +177,14 @@ const data: Project[] = [
         ],
       },
       gallery: [
-        "/assets/statistik-pkj/statistik-province.webp"
-        ,"/assets/statistik-pkj/statistik-regency.webp"
-        ,"/assets/statistik-pkj/statistik-home.webp"
+        "/cv/assets/statistik-pkj/statistik-province.webp"
+        ,"/cv/assets/statistik-pkj/statistik-regency.webp"
+        ,"/cv/assets/statistik-pkj/statistik-home.webp"
       ],
       video: {
         mp4: "",
-        webm: "/assets/statistik-pkj/statistik-prakerja.webm",
-        poster: "/assets/statistik-pkj/statistik-prakerja-poster-video.webp",
+        webm: "/cv/assets/statistik-pkj/statistik-prakerja.webm",
+        poster: "/cv/assets/statistik-pkj/statistik-prakerja-poster-video.webp",
       },
     },
   },  
@@ -194,18 +194,18 @@ const data: Project[] = [
     excerpt: "Find People Going Your Way. A transport alternative that pairs demand with available seats in real time. Search is tuned for route overlap and time windows to surface the best companions first.",
     tags: ["FastAPI", "PostgreSQL","Firebase", "Google Cloud Run", "GeoJSON", "Leaflet Map", "NeonDB"],
     year: 2024,
-    cover: "/assets/sejalan/Sejalan1.webp",
+    cover: "/cv/assets/sejalan/Sejalan1.webp",
     featured: false,
     detail: {
       // client: "Internal Ops",
       roles: [],
       stackExtra: ["Kepler.gl", "BigQuery"],
       gallery: ["/assets/sejalan/Sejalan1.webp"
-         ,"/assets/sejalan/sejalan8.webp"
-        , "/assets/sejalan/Sejalan2.webp"
-         ,"/assets/sejalan/sejalan7.webp"
-        , "/assets/sejalan/sejalan3.webp"
-        , "/assets/sejalan/sejalan5.webp"
+         ,"/cv/assets/sejalan/sejalan8.webp"
+        , "/cv/assets/sejalan/Sejalan2.webp"
+         ,"/cv/assets/sejalan/sejalan7.webp"
+        , "/cv/assets/sejalan/sejalan3.webp"
+        , "/cv/assets/sejalan/sejalan5.webp"
        
       ]
     },
