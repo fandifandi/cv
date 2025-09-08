@@ -135,7 +135,7 @@ const data: Project[] = [
     excerpt: "The Prakerja Statistics website provides data on the program's implementation from 2020 to 2024, covering participant demographics, training options, and incentive distribution, showcasing its impact on workforce development in Indonesia.",
     tags: ["Data Visualization","Python","Airflow","AnalyticDB","GeoJSON"],
     year: 2024,
-    cover: "https://raw.githubusercontent.com/Kartu-Prakerja/laporan-penerima/main/img/img-cover-statistik-prakerja.png",
+    cover: "/assets/statistik-pkj/statistik-pkj-hero.png",
     featured: false,
     detail: {
       client: "Internal Ops",
@@ -176,14 +176,14 @@ const data: Project[] = [
         ],
       },
       gallery: [
-        "https://uce3baf08fa0e76d731c72febd9f.previews.dropboxusercontent.com/p/thumb/ACykmBjCiXp4aGM28nzv5BWf0S0GYbGkVxpcJwOzhDeSApLYYDNtF7RmosOj8n0eEgcmcjEsUn12E3HG0rW9dtYsBw8FMc1TDULdTF_5WP-o5lI_fEx6Dk96NR9cYt6xbho3CRZGxYV8vO16m_sAVCT6P6R-dM4S5jICm60nn6C9I1X8iZoTzWWDlBAH7arEcRNa3C_2oae4faVwLJTdIcQW9xicpvIkSSHUV5lp0pIXoYdv6j-KedmDZ9skc_V7AiMR5XSVlP3m5GCT0hNSuaP2a1aRWcteqRMw62YcyJlD_PJaHErenj3UBSKDHqic6t2Sx7DmUGzYa0w1y3H6-kTXxSJ3W468ZNv3u0VjaMW3BRipLxZiFbzmKRT6QzSwkZg/p.png?is_prewarmed=true"
-        ,"https://uc108c623bc05d368f5213e60f18.previews.dropboxusercontent.com/p/thumb/ACyG3WJKwGIdtojwHdsQB7kw9ceRSCNRtgFXm7PHt3eQ-3xhsIVM7YqXwzCwknMuudKHnU__RGnS0D74W6qZkPDw4J3NgLXsczsDpR0ngbBzvz7ENhhKakw-7s7h0f4PYsFPOUAjBlGnmeRftMf36ObNC-8rngR73eD-wP1cy8SULoUO2T2sCS0vMtoZCs3hLEy7ENvPDeXf7oF9iuLjCI0j4eybkHSBG9DCNe-RlFUiVy6zSEKfZ5SYxU4UzY-HlwryjMSihmqTsGlYAKPmWltDsUE027HViWCXdYH_aDbO4l3L9s--ocZm5JOwvMitc0BIMfowiBLOCCjP1gFNtL2d9Sh5y_J1NUSdDAp5cTvZSoaizEoGD6G7NgwK6SCMGww/p.png?is_prewarmed=true"
-        ,"https://uc398f3f626cef62ae7fac22255a.previews.dropboxusercontent.com/p/thumb/ACyzGTMj2df_8fhm-SZkbmR3QSaG79WAhsSzMBrFyaDlh24osdbHf_xy2cVBww1uQgnXRP162HQEqpTawLsE4ruuRwcDvv_rMZPddtiMhb5fzQH6J7k5g3cKHSqvmSHkprUF5NXvlsq09ZfhNqAR3CNgmdK0cmoazx7pBPFCcdwPClKRh-IAnGaJQGm8VToWDcY0UF3Bs1ejRljyw-YaLYLd5rQP5FDWzuf9loag9kZfLQHpwltkEjvwXi4_G2iRdPHQT4WWDDtKJrW87dwsl-cg0z5-gxTSFGsnvYQ4rBi2HkuxAqAVJBAb8M58MRUTwioUwMQWnzeffHGgsMd7RpDGTVyOQmncNT9bwnOrRpBrTohdq7XnMw0Z_U16lRAmGCM/p.png?is_prewarmed=true"
+        "/assets/statistik-pkj/statistik-province.webp"
+        ,"/assets/statistik-pkj/statistik-regency.webp"
+        ,"/assets/statistik-pkj/statistik-home.webp"
       ],
       video: {
         mp4: "",
-        webm: "https://dikaseva.com/asset/works/statistik-prakerja/statistik-prakerja.webm",
-        poster: "https://dikaseva.com/asset/works/statistik-prakerja/thumb-statistik-prakerja-xs.webp",
+        webm: "/assets/statistik-pkj/statistik-prakerja.webm",
+        poster: "/assets/statistik-pkj/statistik-prakerja-poster-video.webp",
       },
     },
   },  
@@ -193,7 +193,7 @@ const data: Project[] = [
     excerpt: "Find People Going Your Way. A transport alternative that pairs demand with available seats in real time. Search is tuned for route overlap and time windows to surface the best companions first.",
     tags: ["FastAPI", "PostgreSQL","Firebase", "Google Cloud Run", "GeoJSON", "Leaflet Map", "NeonDB"],
     year: 2024,
-    cover: "https://uc19ac31bc98254b171ca2b72c8c.previews.dropboxusercontent.com/p/thumb/ACz1mQcRwd28-dT1EZ_RiYF1PZ6_Ijoa2qkX5nGbxXUHhgiDz21FmcCKotvKJhEI_ObA2VzPCqAuufxZAPDC1cc8lwILqNACsCjUP6WCbGd462G9UhozMclN8cVsVan5mA1moNUUnn9L4p8kLNt637bFAcXQUAk5OIPnMkk7YARexp6YYoWtaQ80dZQFvPumhzPyKg7HtzRjUcpOPrCMRbsC3SwqVrI2gQB8yEAVwP7KdErZojH4_66WUsKdAHgQKI55cE4ytoX80VGGt1by2FvnohhsSKCoXHghko-f8EJPzXp27KxvXbQpFvfgs_ZZXYck_ZjkqL6VmyndliUkMNW0SYt5A1CLVPq2YK8Np8xNhV2jUPOU3p2VtkTqT9t8oM8/p.png?is_prewarmed=true",
+    cover: "/assets/statistik-pkj/statistik-pkj-hero.png",
     featured: false,
     detail: {
       // client: "Internal Ops",
