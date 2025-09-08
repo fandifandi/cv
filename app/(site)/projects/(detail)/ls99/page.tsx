@@ -104,7 +104,7 @@ export default function Page() {
           </li>
           <div className="relative w-full aspect-[16/9]">
             <Image
-              src="https://previews.dropbox.com/p/thumb/ACxnbfjm-1Mk0yx9YoGn81nh0ZkmTgHOorSI5LrrbDu26_5ttYR5usKqL72OWLHQ8AUjbVnMhpMam0rl5bpDqO1aNPDhLSgKA3yK5HT1t18YMcikEOopvNUC0-DltvYtpFqhcbB9XveuJ3I4CtxuAMIqDeioRe24evxUFCeB2DZ7tPLFPUxIDTyJE3az3FpoqgvU1o37Lo3vvJGKE-FJa19u4ytHTkl4tJdGK5llsPqdzR_1WOCuvAXXybwWYaE4Lf5ekp62OQ_fy9p9SazRpPWFyB--xjQAqmWkY0y0ezcDl73I79AAFvsaqZgqMEy57hzJ7Nh7jro5gbghqnrWxntD/p.png?is_prewarmed=true"
+              src="/cv/assets/ls99/ls1.webp"
               alt="LS-99 storefront"
               fill
               sizes="100vw"

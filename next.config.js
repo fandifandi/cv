@@ -6,7 +6,7 @@ const basePath = isProd ? `/${repo}` : "";
 module.exports = {
   output: "export",
   images: { unoptimized: true },
-  basePath,                          // /cv di prod, "" di lokal
+  basePath : '/cv',                          // /cv di prod, "" di lokal
   assetPrefix: isProd ? `/${repo}/` : undefined,
   trailingSlash: true,
   productionBrowserSourceMaps: false,

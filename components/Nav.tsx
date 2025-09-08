@@ -41,7 +41,7 @@ export default function Nav() {
               >
                 {/* Logo ON di light, OFF di dark */}
                 <Image
-                  src={asset("/icons/logo-icon.png")} // "/icons/logo-icon.png" // cv/icons
+                  src={asset("/cv/icons/logo-icon.png")} // "/icons/logo-icon.png" // cv/icons
                   alt="Afandi"
                   width={55}
                   height={55}

@@ -78,7 +78,7 @@ const data: Project[] = [
   excerpt: "Website storefront built end-to-end: brand system, product catalog, payments/shipping, and GA4 e-commerce analytics.",
   tags: ["Branding", "E-commerce", "WooCommerce", "WordPress"],
   year: 2025,
-  cover: "https://previews.dropbox.com/p/thumb/ACyQB9w6JSZckRhjldKGbFS6avZFyArOmlAU0xxK4QrsHl7QyhKbP4yATK2lcrRxein6puKTc9EvQQ1vUq-T8go5yUdCKJckKBLLupbONgO-V7KsNCcTbMUtvxBY25bqbSsb6Xw_CV3wDb7ms_vDm1mTzTiE0_fp-H0oyzdCRMUYOSR0EffXtxoCHTU0UJrPBTa-42LIjwkf8P4Qn5X_2_ir0FynwWRrXmjUiYWq74BD8njKPv-Z2MGxvpKKVumCWu7pJx-1gkIU9FBHMUWMoEs2htvBWGEa3BJI5jEuHoMeySu6P7Lx5zFPihUyondMw6AFOuHfBXTRJPmZtiEledLo/p.png?is_prewarmed=true",
+  cover: "/cv/assets/ls99/ls-home.webp",
   featured: true,
   detail: {
     // client: "LS99",
@@ -122,9 +122,9 @@ const data: Project[] = [
         "Materialisasi laporan mingguan mengurangi fire drill dan mempercepat pengambilan keputusan."
       ]
     }
-    ,gallery: ["https://previews.dropbox.com/p/thumb/ACzJuQck92QLPKg22GmekdDmQKu_Fwretex27nap_r0fTie1pR5XuiuBKgz_2QLxvNWK02f_1Vr9-EbkrxPRXInnj722x9by2ciOGIi1YOz7Gg4KGp-34Cj0o8eech0N7DhP52dNwuIytCQGWk-ZoM0Chl82yrGQgwb1FmsWz8bctYYqy7hPBg9T3kw9SJXfs8p4XJ7vkFt1Y25FwcY6lqvuuHE9fSyhtEdC2u7Cj1iIgBMrKaFfMNBLsCHEx2hIdUNQwoqq4uibucLtur2noBC-zmDVOLx1iFpniEs-AEzuG7Nn6dyy6vdZ8WVnncGnQ3ApSbS2b5sAvY3JXfV_ZhzH/p.png?is_prewarmed=true"
-      , "https://previews.dropbox.com/p/thumb/ACxvcgfD6sjoJbCAAInYQgtCN2-wSYGSnf4puvQJ21Z9DibXVNruVNlPoIKeXXpILsJmWMkCfomfyZqeVEJHiC_rMXGPxoeDH6BK12VVBn99xWkBOOOGWVQyGOUW1M36IjCdxvYxEy9SzmH86iy-EnNV3CbSic0dA_qJUytOKXlGoUpKMX9VA6mLAxkV1wj28pnuf17GSowS-IhUxprqduPBv59DyU2_-jUl_h4zsTqdaZZcDs4fNxh4ZKtFHBuL9ML5Ivwx2GiQp9cIHoKjJTaj05G3ewN5hrik5FdWzQqQgeu8SsC5fGGVcCZrBoUpTV3ENp3gCR6vWQPzvLY30Nqm/p.png?is_prewarmed=true"
-      ,"https://previews.dropbox.com/p/thumb/ACxbXn-L54yG3f5qfAPFZbwsyAMPtAv28QhZlJIQs9tbpkw-OPJ1uKZnemojgFNUehLOq_-AAPkAUsNRlE_Z-Lqjg57Vp-Oz1k77oLVcvBieQvnqK9TKZdZMP1PjwmxSHnythSwjTdrxI9omxh6RHt-I9OM7vnOQamE31lWmGfjyIVHnfAsbjW3NEXA2bd-pjzZ0T2XExdTDMykvAVRJmYO-FuYfGImdH7WvMs_GViJ0_28ofx_-OFnBU7-Nxw5Nn_Gz94vLQZo8OwkRlX9Yy1M9xbV--0C0wxyfUILQY-LsmKNOL52lBhQoL80raFgXgL86yJtMAS0f50Rcw133_ZZu/p.png?is_prewarmed=true"
+    ,gallery: ["/assets/ls99/ls-shop.webp"
+      , "/assets/ls99/ls-checkout.webp"
+      ,"/assets/ls99/ls1.webp"
 
     ]
   }
