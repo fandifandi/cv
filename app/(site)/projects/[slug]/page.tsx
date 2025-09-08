@@ -50,7 +50,7 @@ export default function ProjectDetailGeneric({ params }: { params: { slug: strin
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd({ title: p.title, slug: p.slug, year: p.year,url: abs(`/projects/${p.slug}`) })) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd({ title: p.title, slug: p.slug, year: p.year })) }}
       />
 
       <ProjectLayout project={p}>
