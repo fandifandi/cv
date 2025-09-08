@@ -1,14 +1,18 @@
 // next.config.js
-const isGh = process.env.GHPAGES === "1";   // flag sederhana
-const base = isGh ? "/cv" : "";
+/** @type {import('next').NextConfig} */
+const base = "/cv";
 
 module.exports = {
   output: "export",
-  images: { unoptimized: true },
-  basePath : '/cv',                          // /cv di prod, "" di lokal
-  assetPrefix: isProd ? `/${repo}/` : undefined,
   trailingSlash: true,
   images: { unoptimized: true },
+
+  // selalu /cv
   basePath: base,
-  assetPrefix: base ? base + "/" : undefined,
+  assetPrefix: `${base}/`,
+
+  // kalau butuh di client (untuk helper asset())
+  env: { NEXT_PUBLIC_BASE_PATH: base },
+
+  productionBrowserSourceMaps: false,
 };
