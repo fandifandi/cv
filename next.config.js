@@ -1,17 +1,17 @@
 // next.config.js
 /** @type {import('next').NextConfig} */
-const base = "/cv";
+const isProd = process.env.NODE_ENV === "production"; 
+const base = isProd ? "/cv" : "";                     
 
 module.exports = {
   output: "export",
   trailingSlash: true,
   images: { unoptimized: true },
 
-  // selalu /cv
   basePath: base,
-  assetPrefix: `${base}/`,
+  assetPrefix: base ? `${base}/` : undefined,
 
-  // kalau butuh di client (untuk helper asset())
+  // dipakai helper utk <img>/<video>/CSS/metadata
   env: { NEXT_PUBLIC_BASE_PATH: base },
 
   productionBrowserSourceMaps: false,

@@ -78,7 +78,7 @@ const data: Project[] = [
   excerpt: "Website storefront built end-to-end: brand system, product catalog, payments/shipping, and GA4 e-commerce analytics.",
   tags: ["Branding", "E-commerce", "WooCommerce", "WordPress"],
   year: 2025,
-  cover: "/cv/assets/ls99/ls-home.webp",
+  cover: "/assets/ls99/ls-home.webp",
   featured: true,
   detail: {
     // client: "LS99",
@@ -123,8 +123,9 @@ const data: Project[] = [
       ]
     }
     ,gallery: ["/assets/ls99/ls-shop.webp"
-      , "/assets/ls99/ls-checkout.webp"
+     
       ,"/assets/ls99/ls1.webp"
+       , "/assets/ls99/ls-blog.webp"
 
     ]
   }
@@ -193,24 +194,20 @@ const data: Project[] = [
     excerpt: "Find People Going Your Way. A transport alternative that pairs demand with available seats in real time. Search is tuned for route overlap and time windows to surface the best companions first.",
     tags: ["FastAPI", "PostgreSQL","Firebase", "Google Cloud Run", "GeoJSON", "Leaflet Map", "NeonDB"],
     year: 2024,
-    cover: "/assets/statistik-pkj/statistik-pkj-hero.png",
+    cover: "/assets/sejalan/Sejalan1.webp",
     featured: false,
     detail: {
       // client: "Internal Ops",
       roles: [],
       stackExtra: ["Kepler.gl", "BigQuery"],
-      gallery: ["https://uc526298e800bd1a234c55d47a32.previews.dropboxusercontent.com/p/thumb/ACxavBJXY0A6hWCLneqHVSqq64MdGowOup1_UMSkbTQ6-1mZxLh0Umik8ZcIaZ_dq8CLy0MrXtqpV6w9tooENcpEKb7qUI1HC3e_JHsYvLY1P-kMX2vBZ-HYkZWatwdFdKXxl6t5a8Oi2d0Of3ZqZrpIfK6-pzXmuK09zoGyBULVRkCHPjYjqFCH4AJn4INuQLIcNPZodzUvlrxZuMcMPEshtRm71zEdk1jo_oZCR21qOQ03N8nBOCJ1zwySks6RuwdQF_bZbIGQTgI7MBgKVa0DeeRmgFfkHNSPNJCJmr8WTytPssUGzDCdaEYGmK6ABa2KZhg7KgWOM3tQ_iOjGTwIDPHH09407t-tjnVyX3l-n4fD6ULKeE86irB4_p6Lnu8/p.png?is_prewarmed=true"
-        , "https://uc1b8d38ccc732a3239ef27e276d.previews.dropboxusercontent.com/p/thumb/ACx2pNJV2ocjyFjZ6sr8iQADTP7obzB8JiDRnR5LxNKe8Jvk6J4kIuV5cz4uV28loj87IxJYXqGJ9GRtqK2Vn8Pn8zBCoZ0NCz3dF8bOrfRz0ZKP3iOeNl2F2hh_0aUefvmcFLjm0JcZFPw_Jc8WkMzqNwA4Ji7cFeQYhDofMXu1yTQwjO4A1RUSMicxcbL7PB-SZOGSRkiOxeTp70JlzXwF1F1ZiHt_8NKFNNURsVRp2-XRgf4ZpU2E-nzUT0PrwaedHoC_31T7Lj_TJz_0LbkKIbGVR38hARJwp_OE-NWRXugr3DY8zO-xvj5-wqH431kIoQpU7hYv3vBg_xcy4bnH6ZQlncxXLXHA5m-V65eW2zx9MTggv0CMUXSPCfu_IJg/p.png?is_prewarmed=true"
-        , "https://uc26ede378edb3a008be4a0ac007.previews.dropboxusercontent.com/p/thumb/ACxoqi-EOmK6kXkQwgyvx68jXDGT179nTtI4vPzVQq6klKS1qP2W9V-dd1fA5ap5R1asnqGeap8KKg8UM8vgFOM6zBy3Gs2Q8eNm_qhQPYzvn3t6feVGQE8_Hi92k92sZnIxskR208blz4y-wiSgK0LTcf5tWCfBRqBNDhXLJl2XzvAeB9Qmz1mVQWZbKN8lezcg4NfUOJP5iSuOp7wKhSyGAs59NbAEHAnkX2EDeUOgPI6Vle6i9Pvwn_sfGAr6J_U_1xhJ7UF3EFYGDJTATuB5aOt0wXBRoN8H3T_6v-cPKTzR3HIE1owUZFueBM0yFmPghUNdE-nAx8hepFb45UBeJLPBP6fOZnQYgJz-YeKYvBv4o5crK0nUiy3bZug5or8/p.png?is_prewarmed=true"
-        , "https://uc61ff5c631314a2c5c1e33ff5c3.previews.dropboxusercontent.com/p/thumb/ACwHHmfP5h-fJL5J0li2ExLu4MxDmOaEqILLf97qfE9bjnNfR91oyOJNxgIBZvXHwFLjWC3d5pXUovMgdqcLIc6Ay5iZ643zWDN3MOgrtLGbsl-g2xJHmz0OGx-yk_WNY0Zj8Ynq9deUvHHNX47fo8oecnm-5Z9ROVqt5dDMMNwdW9p9oo4iSGECMhzcj3KIyrPtVCnYrRrwDTncJ7LOJrXLG2c6gJnA3oQcnnKpYzC1s1OH4u-SRzirAe4i0Ggo8jA__RO67e5xfwp8eesZEkGAO8sQHD0HG9QHis0la8SPblaZ_YUNuP40LGEK5UJ3AEhDY5VjjQqWGcduMCjUvRTuzrL7P_g_6dzawKuevEbWZF8deQf9GGceFtGKvkjVQmM/p.png?is_prewarmed=true"
-        ,"https://uc72f769897a42006338b3c72033.previews.dropboxusercontent.com/p/thumb/ACxet9prXeB4fN89V1BGPYq8LAZhm3cvOZ_ta1iPDJoP1B9JxguvRxNsRsFMdHz4gGUMr3_p2ZTATmSB4QzRkVSIBwcCFRaVR6vo1PzZXi0OOebeVW0PcHfjqfvQBB5DPf95nBkKNWbePvPBrxO9eypJIaa8fWWu2cEdIL1p8HGgFBG0r32Ob3MUGRe3cch7nVrpmiq8ZPgYoJPpAcMH0o5_DpIb8JAj4cXmRu3YHX_7Y769IHbLVsj0DDcKDCp6vnRn-XOF0Xa14glFUPXXm-RWdkRBrP7ZlRuPG7pZ8k6_azEDdDnRuQ8JQiyHgGttwuG7FCgCSrNycPBb-oYx0LFMw8meHJbm0kOV2eywmfPMSlxCu3TZ2Exr8hngBNv8--E/p.png?is_prewarmed=true"
-        ,"https://uc4b416dd86804bb06df938efe12.previews.dropboxusercontent.com/p/thumb/ACwpc8LDmHnBlrRUObT6mQBWXIXmHHeLQkF9xUKn4gBb7669XhbxvFOA33XTu-SxHYyAbNU7jZO0SgqEWTbWWz4gnDpMj3nQfAg3SDRzae8Zp71iy-BrXZHZ-Kjo0oWC7FD0MPiBQLjhujxDqjzrRC-nIzAAaMjOn5Y2MwTZAFI6_-04WmHKPHgDnGxegGZQQa8aKwWuxd3AHsZLslxY2APplSxeqX7Re7TPg-M1qj6wn_vqHP3BjhRnKezAetkHPn67NjhQhotv7dd-eOdAtM_q-h7Z1EyqHWoNUTu46QZd--x8mpn5NHMJXDsmkF9lkuNkogefGi97gMpPFBiOklUA5iPt1E1JxVJb9LLTci67BvJU9RSfjiufrJoU4cVSq8k/p.png?is_prewarmed=true"
-      ],
-      video: {
-        mp4: "",
-        webm: "https://dikaseva.com/asset/works/statistik-prakerja/statistik-prakerja.webm",
-        poster: "https://dikaseva.com/asset/works/statistik-prakerja/thumb-statistik-prakerja-xs.webp",
-      },
+      gallery: ["/assets/sejalan/Sejalan1.webp"
+         ,"/assets/sejalan/sejalan8.webp"
+        , "/assets/sejalan/Sejalan2.webp"
+         ,"/assets/sejalan/sejalan7.webp"
+        , "/assets/sejalan/sejalan3.webp"
+        , "/assets/sejalan/sejalan5.webp"
+       
+      ]
     },
   },
   {

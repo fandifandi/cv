@@ -1,23 +1,24 @@
 "use client";
 
+import { asset } from "@/lib/asset";
+
 type Props = {
-  mp4?: string;           // URL penuh atau /public/videos/...
-  webm?: string;          // opsional
-  poster?: string;        // opsional
+  mp4?: string;           // "/assets/..." atau URL absolut
+  webm?: string;
+  poster?: string;
   className?: string;
-  autoPlay?: boolean;     // default false (autoplay aman hanya jika muted)
+  autoPlay?: boolean;     // default false; autoplay butuh muted=true agar jalan di mobile
   loop?: boolean;         // default false
   muted?: boolean;        // default false
 };
 
-const to = (u?: string) =>
-  !u ? undefined
-     : /^https?:\/\//.test(u)
-       ? u
-       : `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${u.startsWith("/") ? u : `/${u}`}`;
+// helper kecil: undefined-in → undefined-out
+const to = (u?: string) => (u ? asset(u) : undefined);
 
 export default function VideoBasic({
-  mp4, webm, poster,
+  mp4,
+  webm,
+  poster,
   className = "",
   autoPlay = false,
   loop = false,
@@ -34,7 +35,7 @@ export default function VideoBasic({
       playsInline
       preload="metadata"
       muted={muted}
-      autoPlay={autoPlay && muted}  // autoplay mobile butuh muted
+      autoPlay={autoPlay && muted}  // autoplay modern browser wajib muted
       loop={loop}
       poster={posterSrc}
     >

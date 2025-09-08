@@ -6,11 +6,12 @@ import { CUSTOM_SLUGS } from "@/lib/project-custom";
 
 import { projectJsonLd } from "@/lib/seo";
 
-import { asset } from "@/lib/asset";
+import { asset,abs } from "@/lib/asset";
 import VideoBasic from "@/components/VideoBasic";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
+
 
 export function generateStaticParams() {
   return slugs
@@ -21,11 +22,13 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const p = getProjectBySlug(params.slug);
   if (!p) return {};
-  const ogImg = p.cover ? asset(p.cover) : undefined;
+  const ogImg = p.cover ? abs(p.cover) : undefined; // OG sebaiknya absolute URL
+  const canonical = asset(`/projects/${p.slug}`);   // prefix basePath untuk canonical
+
   return {
     title: p.seo?.title ?? p.title,
     description: p.seo?.description ?? p.excerpt,
-    alternates: { canonical: `/projects/${p.slug}` },
+    alternates: { canonical },
     openGraph: {
       title: p.title,
       description: p.excerpt,
@@ -36,7 +39,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 export default function ProjectDetailGeneric({ params }: { params: { slug: string } }) {
   const p = getProjectBySlug(params.slug);
-  if (!p) return notFound();
+
+  if (!p) notFound();
 
   const s = p.detail?.sections;
   const v = p.detail?.video;
@@ -46,7 +50,7 @@ export default function ProjectDetailGeneric({ params }: { params: { slug: strin
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd({ title: p.title, slug: p.slug, year: p.year })) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd({ title: p.title, slug: p.slug, year: p.year,url: abs(`/projects/${p.slug}`) })) }}
       />
 
       <ProjectLayout project={p}>
@@ -54,9 +58,9 @@ export default function ProjectDetailGeneric({ params }: { params: { slug: strin
         {p.detail?.video && (
           <div className="mt-6">
             <VideoBasic
-              mp4={p.detail.video.mp4}      // isi kalau punya
-              webm={p.detail.video.webm}    // kalau ada
-              poster={p.detail.video.poster}
+              mp4={asset(p.detail.video.mp4 || "")}
+              webm={asset(p.detail.video.webm || "")}
+              poster={asset(p.detail.video.poster || "")}
               // controls aktif default
               // autoPlay // aktifkan kalau mau, tapi set muted={true}
               // muted

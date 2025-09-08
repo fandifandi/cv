@@ -4,7 +4,9 @@
   "private": true,
   "description": "Afandi — Resume & Portfolio built with Next.js",
   "scripts": {
-   "deploy:gh": "rm -rf out .next && GHPAGES=1 next build && touch out/.nojekyll && gh-pages -d out -b gh-pages"
+   "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "engines": {
     "node": ">=18.18"

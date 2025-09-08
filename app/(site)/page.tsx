@@ -95,7 +95,7 @@ const SKILLS_BY_INDEX: Record<number, SkillDatum[]> = {
     { name: "Customer Data Platform", value: 70 },
   ],
   3: [
-    { name: "Python", value: 20 },
+    { name: "Python", value: 75 },
     { name: "Data Analytics", value: 88 },
     { name: "Automation", value: 78 },
     { name: "PowerBI", value: 72 },
