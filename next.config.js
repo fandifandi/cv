@@ -1,14 +1,17 @@
-/** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === "production";
-const repo = "cv";
-const basePath = isProd ? `/${repo}` : "";
+// next.config.js
+const isGh = process.env.GHPAGES === "1";   // flag sederhana
+const base = isGh ? "/cv" : "";
 
 module.exports = {
   output: "export",
+<<<<<<< HEAD
   images: { unoptimized: true },
   basePath : '/cv',                          // /cv di prod, "" di lokal
   assetPrefix: isProd ? `/${repo}/` : undefined,
+=======
+>>>>>>> 51bfafa0dddfb5433dead7cc31fbb316bea277bc
   trailingSlash: true,
-  productionBrowserSourceMaps: false,
-  env: { NEXT_PUBLIC_BASE_PATH: basePath },
+  images: { unoptimized: true },
+  basePath: base,
+  assetPrefix: base ? base + "/" : undefined,
 };
