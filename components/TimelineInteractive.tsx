@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRef, useState, KeyboardEvent,useCallback } from "react";
+import { useRef, useState, KeyboardEvent, useCallback } from "react";
 
 export type TimelineItem = {
   time: string;
@@ -14,7 +14,7 @@ export type TimelineItem = {
 
 export default function TimelineInteractive({
   items,
-  onChange, // dipanggil hanya saat user memilih (klik / Enter / Space)
+  onChange,
 }: {
   items: TimelineItem[];
   onChange?: (index: number, item: TimelineItem) => void;
@@ -91,9 +91,31 @@ export default function TimelineInteractive({
                     : "hover:bg-[color:var(--card)]",
                 ].join(" ")}
               >
-                <time className="text-xs opacity-70">{t.time}</time>
-                <h3 className="font-semibold mt-0.5">{t.title}</h3>
-                <p className="opacity-85">{t.desc}</p>
+                {/* Header: Title + City (kiri), Time (kanan) */}
+                <header className="flex items-start justify-between gap-3">
+                  <div className="min-w-0">
+                    <div className="flex items-baseline gap-2 flex-wrap">
+                      <h3 className="font-semibold">{t.title}</h3>
+                      {t.city && (
+                        <span className="text-sm text-[color:var(--muted)]">
+                          • {t.city}
+                        </span>
+                      )}
+                    </div>
+                    {t.company && (
+                      <div className="mt-0.5 text-sm italic text-[color:var(--muted)]">
+                        {t.company}
+                      </div>
+                    )}
+                  </div>
+
+                  <time className="shrink-0 text-xs text-[color:var(--muted)] whitespace-nowrap">
+                    {t.time}
+                  </time>
+                </header>
+
+                {/* Deskripsi */}
+                <p className="mt-2 opacity-85">{t.desc}</p>
 
                 {t.href && (
                   <Link

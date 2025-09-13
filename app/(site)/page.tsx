@@ -44,15 +44,15 @@ const TL: TimelineItem[] = [
   { time: "Jan 2022 – Dec 2024",company: "PMO Prakerja",city: "Jakarta, Indonesia", title: "Head of Data & Analytics"
     , desc: "Led the team and analytics strategy while working with Ops & Engineering to clean up tracking, enforce SLA-based pipelines, and roll out self-serve dashboards. The result: less manual work, lower latency, and fewer fire drills.", href: "/projects" },
   { time: "Jul 2020 – Dec 2021",company: "PMO Prakerja",city: "Jakarta, Indonesia",    title: "Manager Data Analyst"
-    , desc: "Managed the organization’s end-to-end data function—built the data team from zero, set strategy and roadmaps for platform, analytics, and governance, and aligned KPIs across divisions. Scaled experimentation and decision support, improving reliability, time-to-insight, and cost." },
+    , desc: "Managed the organization’s end-to-end data function. Built the data team from zero, set strategy and roadmaps for platform, analytics, and governance, and aligned KPIs across divisions. Scaled experimentation and decision support, improving reliability, time-to-insight, and cost." },
   { time: "Feb 2019 – Jun 2020",company: "PT. Global Pay Indonesia - Cashbac, Instant Rewards App",city: "Jakarta, Indonesia",    title: "Product Data Analyst"
     , desc: "Owned product analytics end-to-end: defined the event taxonomy and tracking plan, partnered with Engineering to instrument reliable events, and built funnels and KPI readouts for PMs. Led the migration to a unified CDP and ran A/B tests plus cohort analyses to diagnose drop-offs, improve activation, and lift retention." },
   { time: "Sep 2017 – Feb 2019",company: "KATA.AI - Conversational AI",city: "Jakarta, Indonesia",    title: "Data Analyst"
-    , desc: "Delivered customer segmentation, funnel and retention dashboards, and operational insights for conversational AI products. Automated recurring reports—weekly packs, cohort refreshes, and KPI digests—reducing manual work and speeding decision cycles across product and ops." },
+    , desc: "Delivered customer segmentation, funnel and retention dashboards, and operational insights for conversational AI products. Automated recurring reports, weekly packs, cohort refreshes, and KPI digests, reducing manual work and speeding decision cycles across product and ops." },
   { time: "Dec 2016 – Aug 2017",company: "UNIMATRIX UG - Student service",city: "Berlin, Germany",    title: "Business Development"
-    , desc: "Handled accounting and day-to-day operations, coordinated student events end-to-end, and managed the website development cycle (requirements, vendor coordination, content updates)—keeping budgets and timelines on track." },
-  { time: "Aug 2015 – Nov 2016",company: "Lamudi GmBH - Internet & Real Estate",city: "Berlin, Germany",    title: "IT Developer and Feed Management  (Internship & working student)"
-    , desc: "Managed feed listings from global partners—mapping formats, scheduling imports, and resolving mismatches. Automated ingestion, validation, and alerts to keep marketplace data accurate and up-to-date at scale." },
+    , desc: "Handled accounting and day-to-day operations, coordinated student events end-to-end, and managed the website development cycle (requirements, vendor coordination, content updates), keeping budgets and timelines on track." },
+  { time: "Aug 2015 – Nov 2016",company: "Lamudi GmBH - Internet & Real Estate",city: "Berlin, Germany",    title: "IT Developer (Internship & working student)"
+    , desc: "Managed feed listings from global partners. Handled mapping formats, scheduling imports, and resolving mismatches. Automated ingestion, validation, and alerts to keep marketplace data accurate and up-to-date at scale." },
   { time: "Mei 2016 – Dec 2015",company: "Yesbossnow - SMS Virtual Assistance",city: "Berlin, Germany",    title: "Business Intelligence Analyst (Remote)"
     , desc: "Set up KPIs and automated reporting for a virtual assistant service. Delivered weekly insights for operations and growth teams." },
 ];
@@ -211,7 +211,7 @@ export default function HomePage() {
                             data-gtag-param-target="cv_viewed"
                             className="px-4 py-2 rounded-xl border border-[color:var(--border)] hover:bg-[color:var(--card)]"
                           >
-                            VIEW CV (PDF)
+                            View CV (PDF)
                           </a>
                       </div>
 
@@ -222,12 +222,12 @@ export default function HomePage() {
                           <div className="text-xs opacity-80">Experience in Data Fields</div>
                         </div>
                         <div className="rounded-xl border border-[color:var(--border)] bg-[color:var(--card)] p-4">
-                          <div className="text-2xl font-bold text-emerald-400">-23%</div>
-                          <div className="text-xs opacity-80">Cost/query (BQ)</div>
+                          <div className="text-2xl font-bold text-emerald-400">↓60h/mo</div>
+                          <div className="text-xs opacity-80">Automated ELT & reporting</div>
                         </div>
                         <div className="rounded-xl border border-[color:var(--border)] bg-[color:var(--card)] p-4 col-span-2 sm:col-span-1">
                           <div className="text-2xl font-bold text-emerald-400">5h → 1h</div>
-                          <div className="text-xs opacity-80">Insight turnaround</div>
+                          <div className="text-xs opacity-80">80% faster time-to-insight</div>
                         </div>
                       </div>
                     </div>
@@ -281,8 +281,8 @@ export default function HomePage() {
                 <h2 className="text-3xl font-bold">About Me</h2>
                 <p className="mt-3 opacity-90">
                   Started in scrappy startups, building the first versions of tracking, metrics, dashboards, and automated reporting for chatbots and consumer apps. 
-                  <br /><br />Then stepped up to lead analytics for a national program—rebuilding event tracking, tightening data quality, and shipping A/B tests with clear guardrails so results hold up. The work turned messy pipelines into reliable, decision-ready data. 
-                  <br /><br />Today the focus is where data, product, and operations meet: crisp shared metrics, disciplined experiments, and lean, cost-aware data ops—so teams can move fast with confidence.
+                  <br /><br />Then stepped up to lead analytics for a national program, rebuilding event tracking, tightening data quality, and shipping A/B tests with clear guardrails so results hold up. The work turned messy pipelines into reliable, decision-ready data. 
+                  <br /><br />Today the focus is where data, product, and operations meet: crisp shared metrics, disciplined experiments, and lean, cost-aware data ops. So teams can move fast with confidence.
                 </p>
 
                 <div className="mt-5 grid sm:grid-cols-3 gap-3 text-sm">
