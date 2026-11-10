@@ -41,6 +41,8 @@ const SECTIONS = [
 
 
 const TL: TimelineItem[] = [
+  { time: "Nov 2025 – Present",company: "Komite Percepatan Transformasi Digital",city: "Jakarta, Indonesia", title: "Senior Data Engineer"
+    , desc: "Designed and implemented enterprise data platforms and data warehouses, and architected scalable pipelines, integration services, and automation workers for complex operational processes. Built data models, analytical datasets, and KPI frameworks for reporting and performance monitoring, partnering with operations, product, and technology teams to turn requirements into actionable insights. Drove data governance, quality, performance, and security initiatives to improve the reliability and accessibility of organizational data." },
   { time: "Jan 2022 – Dec 2024",company: "PMO Prakerja",city: "Jakarta, Indonesia", title: "Head of Data & Analytics"
     , desc: "Led the team and analytics strategy while working with Ops & Engineering to clean up tracking, enforce SLA-based pipelines, and roll out self-serve dashboards. The result: less manual work, lower latency, and fewer fire drills.", href: "/projects" },
   { time: "Jul 2020 – Dec 2021",company: "PMO Prakerja",city: "Jakarta, Indonesia",    title: "Manager Data Analyst"
@@ -74,13 +76,21 @@ const ALL_SKILLS: SkillDatum[] = [
 // mapping subset per item timeline (index 0..)
 const SKILLS_BY_INDEX: Record<number, SkillDatum[]> = {
   0: [
+    { name: "Data Engineering", value: 95 },
+    { name: "Data Warehouse", value: 92 },
+    { name: "Data Pipelines", value: 94 },
+    { name: "Data Modeling", value: 92 },
+    { name: "Data Governance", value: 85 },
+    { name: "Automation", value: 91 },
+  ],
+  1: [
     { name: "Leadership", value: 85 },
     { name: "Data Analysis", value: 90 },
     { name: "Experimentation", value: 92 },
     { name: "BigQuery", value: 86 },
     { name: "Customer Data Platform", value: 86 },
   ],
-  1: [
+  2: [
     { name: "Data Engineering", value: 88 },
     { name: "Airflow", value: 82 },
     { name: "SQL", value: 92 },
@@ -88,33 +98,33 @@ const SKILLS_BY_INDEX: Record<number, SkillDatum[]> = {
     { name: "Automation", value: 88 },
     { name: "Data Analysis", value: 88 },
   ],
-  2: [
+  3: [
     { name: "Python", value: 80 },
     { name: "SQL", value: 88 },
     { name: "Metabase", value: 90 },
     { name: "Customer Data Platform", value: 70 },
   ],
-  3: [
+  4: [
     { name: "Python", value: 75 },
     { name: "Data Analytics", value: 88 },
     { name: "Automation", value: 78 },
     { name: "PowerBI", value: 72 },
   ],
-  4: [
+  5: [
     { name: "Business Development", value: 75 },
     { name: "Accounting", value: 88 },
     { name: "Event Management", value: 78 },
     { name: "Business Strategy", value: 72 },
     { name: "Web Development", value: 72 },
   ],
-  5: [
+  6: [
     { name: "Shell Scripting", value: 20 },
     { name: "XML/ JSON", value: 88 },
     { name: "Feed Management", value: 78 },
     { name: "Data Integration", value: 72 },
     { name: "Partner Integration (Feeds/API)", value: 72 },
   ],
-  6: [
+  7: [
     { name: "SQL", value: 20 },
     { name: "Excel", value: 88 },
     { name: "NoSQL", value: 78 },
@@ -266,7 +276,7 @@ export default function HomePage() {
               <div className="grid md:grid-cols-[minmax(220px,280px),1fr] lg:grid-cols-[320px,1fr] gap-8 items-start">
                 <img
                   loading="lazy"
-                  src="https://media.licdn.com/dms/image/v2/D5603AQEtK7MvSGPaMw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1731997776943?e=1759968000&v=beta&t=KwtrNYtKrquynIrjCz183aNHIOquYoRPqqDX0p0c25U"
+                  src="https://media.licdn.com/dms/image/v2/D5603AQEtK7MvSGPaMw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1731997776943?e=1795651200&v=beta&t=620v0LNXednMXfE4Y5TG3SY-ohhPZdK4s5zCpsDH86Y"
                   alt="Profile"
                   className="
                     rounded-2xl border border-[color:var(--border)]

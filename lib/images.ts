@@ -13,7 +13,7 @@ const a = (src: string, extra: Omit<ImageItem, "src"> = {}): ImageItem => ({
 // Semua path gambar kamu kumpulkan di sini
 export const IMG = {
   profile_pic: {
-    me: a("https://media.licdn.com/dms/image/v2/D5603AQEtK7MvSGPaMw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1731997776943?e=1759968000&v=beta&t=KwtrNYtKrquynIrjCz183aNHIOquYoRPqqDX0p0c25U", { alt: "Profile photo" }),
+    me: a("https://media.licdn.com/dms/image/v2/D5603AQEtK7MvSGPaMw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1731997776943?e=1795651200&v=beta&t=620v0LNXednMXfE4Y5TG3SY-ohhPZdK4s5zCpsDH86Y", { alt: "Profile photo" }),
     mesh: a("/img/mesh-light.webp", { alt: "Gradient mesh" }),
   },
   pkj: {
