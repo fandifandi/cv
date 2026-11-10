@@ -42,7 +42,7 @@ const SECTIONS = [
 
 const TL: TimelineItem[] = [
   { time: "Nov 2025 – Present",company: "Komite Percepatan Transformasi Digital",city: "Jakarta, Indonesia", title: "Senior Data Engineer"
-    , desc: "Designed and implemented enterprise data platforms and data warehouses, and architected scalable pipelines, integration services, and automation workers for complex operational processes. Built data models, analytical datasets, and KPI frameworks for reporting and performance monitoring, partnering with operations, product, and technology teams to turn requirements into actionable insights. Drove data governance, quality, performance, and security initiatives to improve the reliability and accessibility of organizational data." },
+    , desc: "Designed and implemented enterprise data platforms, warehouses, and scalable pipelines for complex operational processes. Built data models and KPI frameworks with operations, product, and technology teams, and drove data governance and quality initiatives to make organizational data more reliable and accessible." },
   { time: "Jan 2022 – Dec 2024",company: "PMO Prakerja",city: "Jakarta, Indonesia", title: "Head of Data & Analytics"
     , desc: "Led the team and analytics strategy while working with Ops & Engineering to clean up tracking, enforce SLA-based pipelines, and roll out self-serve dashboards. The result: less manual work, lower latency, and fewer fire drills.", href: "/projects" },
   { time: "Jul 2020 – Dec 2021",company: "PMO Prakerja",city: "Jakarta, Indonesia",    title: "Manager Data Analyst"
