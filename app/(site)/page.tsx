@@ -147,14 +147,14 @@ const SKILLS_BY_INDEX: Record<number, SkillDatum[]> = {
     { name: "Web Development", value: 72 },
   ],
   6: [
-    { name: "Shell Scripting", value: 20 },
+    { name: "Shell Scripting", value: 70 },
     { name: "XML/JSON", value: 88 },
     { name: "Feed Management", value: 78 },
     { name: "Data Integration", value: 72 },
     { name: "Partner Integration (Feeds/API)", value: 72 },
   ],
   7: [
-    { name: "SQL", value: 20 },
+    { name: "SQL", value: 70 },
     { name: "Excel", value: 88 },
     { name: "NoSQL", value: 78 },
     { name: "holistics.io", value: 72 },
