@@ -56,8 +56,6 @@ export default function Nav() {
           {/* tengah: menu (centered) */}
           <nav className="flex items-center gap-1 justify-self-center">
             <NavLink href="/projects">Projects</NavLink>
-            {/* <NavLink href="/about">About</NavLink>
-            <NavLink href="/#contact">Contact</NavLink> */}
           </nav>
 
           {/* kanan: spacer (kosong, karena ikon sosmed + theme sudah fixed di pojok kanan) */}

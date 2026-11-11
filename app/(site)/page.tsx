@@ -1,65 +1,94 @@
 // app/(site)/page.tsx
-import HomeProjectsGridSimple from "@/components/HomeProjectsGridSimple";
-
-import ContactSimple from "@/components/ContactSimple";
-import ThemeIconToggle from "@/components/ThemeIconToggle";
-import BackToTop from "@/components/BackToTop";
-
-
-import { allProjects /* atau featuredProjects */ } from "@/lib/projects";
-
-import TimelineSkills from "@/components/TimelineSkills";
-import type { TimelineItem } from "@/components/TimelineInteractive";
-import type { SkillDatum } from "@/components/SkillsBars";
-
-import ScrollSpy from "@/components/ScrollSpy";
-import { personJsonLd } from "@/lib/seo";
-
-import MethodologyCycleSVG from "@/components/MethodologyCycleSVG";
-
-import {LinkedInGlyph, GitHubGlyph} from "@/components/social/icon";
-import ClockGauge from '@/components/echarts/ClockGauge';
-import Link from "next/link";
-import Image from "next/image";
-import { CV_DOWNLOAD, CV_VIEW } from "@/lib/links";
-
-import Footer from "@/components/Footer";
 import { Suspense } from "react";
 
+import BackToTop from "@/components/BackToTop";
+import ContactSimple from "@/components/ContactSimple";
+import Footer from "@/components/Footer";
+import HomeProjectsGridSimple from "@/components/HomeProjectsGridSimple";
+import MethodologyCycleSVG from "@/components/MethodologyCycleSVG";
+import ScrollSpy from "@/components/ScrollSpy";
+import ThemeIconToggle from "@/components/ThemeIconToggle";
+import TimelineSkills from "@/components/TimelineSkills";
+import type { SkillDatum } from "@/components/SkillsBars";
+import type { TimelineItem } from "@/components/TimelineInteractive";
+import { GitHubGlyph, LinkedInGlyph } from "@/components/social/icon";
+
+import { IMG } from "@/lib/images";
+import { CV_DOWNLOAD, CV_VIEW } from "@/lib/links";
+import { allProjects } from "@/lib/projects";
+import { personJsonLd } from "@/lib/seo";
 
 export const dynamic = "force-static";
-
 
 const SECTIONS = [
   { id: "hero", label: "Home" },
   { id: "about", label: "About" },
-  
   { id: "timeline", label: "Timeline" },
   { id: "projects", label: "Projects" },
   { id: "contact", label: "Contact" },
 ];
 
-
 const TL: TimelineItem[] = [
-  { time: "Nov 2025 – Present",company: "Komite Percepatan Transformasi Digital",city: "Jakarta, Indonesia", title: "Senior Data Engineer"
-    , desc: "Designed and implemented enterprise data platforms, warehouses, and scalable pipelines for complex operational processes. Built data models and KPI frameworks with operations, product, and technology teams, and drove data governance and quality initiatives to make organizational data more reliable and accessible." },
-  { time: "Jan 2022 – Dec 2024",company: "PMO Prakerja",city: "Jakarta, Indonesia", title: "Head of Data & Analytics"
-    , desc: "Led the team and analytics strategy while working with Ops & Engineering to clean up tracking, enforce SLA-based pipelines, and roll out self-serve dashboards. The result: less manual work, lower latency, and fewer fire drills.", href: "/projects" },
-  { time: "Jul 2020 – Dec 2021",company: "PMO Prakerja",city: "Jakarta, Indonesia",    title: "Manager Data Analyst"
-    , desc: "Managed the organization’s end-to-end data function. Built the data team from zero, set strategy and roadmaps for platform, analytics, and governance, and aligned KPIs across divisions. Scaled experimentation and decision support, improving reliability, time-to-insight, and cost." },
-  { time: "Feb 2019 – Jun 2020",company: "PT. Global Pay Indonesia - Cashbac, Instant Rewards App",city: "Jakarta, Indonesia",    title: "Product Data Analyst"
-    , desc: "Owned product analytics end-to-end: defined the event taxonomy and tracking plan, partnered with Engineering to instrument reliable events, and built funnels and KPI readouts for PMs. Led the migration to a unified CDP and ran A/B tests plus cohort analyses to diagnose drop-offs, improve activation, and lift retention." },
-  { time: "Sep 2017 – Feb 2019",company: "KATA.AI - Conversational AI",city: "Jakarta, Indonesia",    title: "Data Analyst"
-    , desc: "Delivered customer segmentation, funnel and retention dashboards, and operational insights for conversational AI products. Automated recurring reports, weekly packs, cohort refreshes, and KPI digests, reducing manual work and speeding decision cycles across product and ops." },
-  { time: "Dec 2016 – Aug 2017",company: "UNIMATRIX UG - Student service",city: "Berlin, Germany",    title: "Business Development"
-    , desc: "Handled accounting and day-to-day operations, coordinated student events end-to-end, and managed the website development cycle (requirements, vendor coordination, content updates), keeping budgets and timelines on track." },
-  { time: "Aug 2015 – Nov 2016",company: "Lamudi GmBH - Internet & Real Estate",city: "Berlin, Germany",    title: "IT Developer (Internship & working student)"
-    , desc: "Managed feed listings from global partners. Handled mapping formats, scheduling imports, and resolving mismatches. Automated ingestion, validation, and alerts to keep marketplace data accurate and up-to-date at scale." },
-  { time: "Mei 2016 – Dec 2015",company: "Yesbossnow - SMS Virtual Assistance",city: "Berlin, Germany",    title: "Business Intelligence Analyst (Remote)"
-    , desc: "Set up KPIs and automated reporting for a virtual assistant service. Delivered weekly insights for operations and growth teams." },
+  {
+    time: "Nov 2025 – Present",
+    company: "Komite Percepatan Transformasi Digital",
+    city: "Jakarta, Indonesia",
+    title: "Senior Data Engineer",
+    desc: "Designed and implemented enterprise data platforms, warehouses, and scalable pipelines for complex operational processes. Built data models and KPI frameworks with operations, product, and technology teams, and drove data governance and quality initiatives to make organizational data more reliable and accessible.",
+  },
+  {
+    time: "Jan 2022 – Dec 2024",
+    company: "PMO Prakerja",
+    city: "Jakarta, Indonesia",
+    title: "Head of Data & Analytics",
+    desc: "Led the team and analytics strategy while working with Ops & Engineering to clean up tracking, enforce SLA-based pipelines, and roll out self-serve dashboards. The result: less manual work, lower latency, and fewer fire drills.",
+    href: "/projects",
+  },
+  {
+    time: "Jul 2020 – Dec 2021",
+    company: "PMO Prakerja",
+    city: "Jakarta, Indonesia",
+    title: "Manager Data Analyst",
+    desc: "Managed the organization’s end-to-end data function. Built the data team from zero, set strategy and roadmaps for platform, analytics, and governance, and aligned KPIs across divisions. Scaled experimentation and decision support, improving reliability, time-to-insight, and cost.",
+  },
+  {
+    time: "Feb 2019 – Jun 2020",
+    company: "PT. Global Pay Indonesia - Cashbac, Instant Rewards App",
+    city: "Jakarta, Indonesia",
+    title: "Product Data Analyst",
+    desc: "Owned product analytics end-to-end: defined the event taxonomy and tracking plan, partnered with Engineering to instrument reliable events, and built funnels and KPI readouts for PMs. Led the migration to a unified CDP and ran A/B tests plus cohort analyses to diagnose drop-offs, improve activation, and lift retention.",
+  },
+  {
+    time: "Sep 2017 – Feb 2019",
+    company: "KATA.AI - Conversational AI",
+    city: "Jakarta, Indonesia",
+    title: "Data Analyst",
+    desc: "Delivered customer segmentation, funnel and retention dashboards, and operational insights for conversational AI products. Automated recurring reports, weekly packs, cohort refreshes, and KPI digests, reducing manual work and speeding decision cycles across product and ops.",
+  },
+  {
+    time: "Dec 2016 – Aug 2017",
+    company: "UNIMATRIX UG - Student service",
+    city: "Berlin, Germany",
+    title: "Business Development",
+    desc: "Handled accounting and day-to-day operations, coordinated student events end-to-end, and managed the website development cycle (requirements, vendor coordination, content updates), keeping budgets and timelines on track.",
+  },
+  {
+    time: "Aug 2015 – Nov 2016",
+    company: "Lamudi GmbH - Internet & Real Estate",
+    city: "Berlin, Germany",
+    title: "IT Developer (Internship & working student)",
+    desc: "Managed feed listings from global partners. Handled mapping formats, scheduling imports, and resolving mismatches. Automated ingestion, validation, and alerts to keep marketplace data accurate and up-to-date at scale.",
+  },
+  {
+    time: "May 2015 – Dec 2015",
+    company: "Yesbossnow - SMS Virtual Assistance",
+    city: "Berlin, Germany",
+    title: "Business Intelligence Analyst (Remote)",
+    desc: "Set up KPIs and automated reporting for a virtual assistant service. Delivered weekly insights for operations and growth teams.",
+  },
 ];
 
-// semua skill (default)
+// All skills (shown when no timeline item is selected)
 const ALL_SKILLS: SkillDatum[] = [
   { name: "Python", value: 90 },
   { name: "NoSQL", value: 70 },
@@ -73,7 +102,7 @@ const ALL_SKILLS: SkillDatum[] = [
   { name: "Data Science", value: 80 },
 ];
 
-// mapping subset per item timeline (index 0..)
+// Skills per timeline item — keys must match the index in TL above
 const SKILLS_BY_INDEX: Record<number, SkillDatum[]> = {
   0: [
     { name: "Data Engineering", value: 95 },
@@ -119,7 +148,7 @@ const SKILLS_BY_INDEX: Record<number, SkillDatum[]> = {
   ],
   6: [
     { name: "Shell Scripting", value: 20 },
-    { name: "XML/ JSON", value: 88 },
+    { name: "XML/JSON", value: 88 },
     { name: "Feed Management", value: 78 },
     { name: "Data Integration", value: 72 },
     { name: "Partner Integration (Feeds/API)", value: 72 },
@@ -130,19 +159,15 @@ const SKILLS_BY_INDEX: Record<number, SkillDatum[]> = {
     { name: "NoSQL", value: 78 },
     { name: "holistics.io", value: 72 },
     { name: "Apache Zeppelin", value: 72 },
-
   ],
 };
 
-
 export default function HomePage() {
-  
-
   return (
     <>
       {/* SEO */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
-      
+
       {/* Dot nav + scroll spy */}
       <div className="dotnav">
         <Suspense fallback={null}>
@@ -150,11 +175,8 @@ export default function HomePage() {
         </Suspense>
       </div>
 
-
-
-
+      {/* Floating actions: GitHub, LinkedIn, theme toggle */}
       <div className="fixed top-4 right-4 z-50 flex items-center gap-2">
-        {/* GitHub (bulat) */}
         <a
           href="https://github.com/fandifandi"
           target="_blank"
@@ -183,91 +205,100 @@ export default function HomePage() {
           <LinkedInGlyph className="w-4 h-4" />
         </a>
 
-        {/* Toggle Light/Dark */}
         <ThemeIconToggle />
       </div>
 
-
-      {/* SCROLLER container */}
-      <main id="scroller" className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth snap-y snap-proximity">
+      {/* Scroll container */}
+      <main id="scroller" className="h-screen overflow-y-scroll scroll-smooth snap-y snap-proximity">
         {/* ===== HERO ===== */}
-        
-      <section id="hero" className="snap-start min-h-screen flex items-center mesh pt-16">
-                <div className="max-w-7xl mx-auto w-full px-6">
-                  <div className="grid lg:grid-cols-2 gap-8 items-center">
-                    <div>
-                      <h1 className="text-5xl font-extrabold leading-[1.1]">
-                        I turn raw <span className="text-emerald-400">data</span> into stories that drive{" "}
-                        <span className="text-violet-400">impact</span>.
-                      </h1>
-                      <p className="mt-3 text-[color:var(--muted)] max-w-2xl">
-                        From signal to strategy: clear metrics, thoughtful experiments, and outcomes that matter. Alignment comes first, evidence follows, and product choices are tracked to adoption, retention, and revenue.
-                      </p>
-                      <div className="mt-6 flex flex-wrap gap-3">
-                        <a href="#projects" data-gtag-event="explore_worked_viewed" data-gtag-param-location="hero" data-gtag-param-variant="primary" data-gtag-param-target="section_viewed" className="px-4 py-2 rounded-xl bg-gradient-to-r from-teal-400 to-violet-500 font-semibold">
-                          Explore Work
-                        </a>
-                        <a href="#contact" data-gtag-event="contact_viewed" data-gtag-param-location="hero" data-gtag-param-variant="primary" data-gtag-param-target="section_viewed" className="px-4 py-2 rounded-xl frost border border-[color:var(--border)]">
-                          Contact
-                        </a>
+        <section id="hero" className="snap-start min-h-screen flex items-center mesh pt-16">
+          <div className="max-w-7xl mx-auto w-full px-6">
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <h1 className="text-5xl font-extrabold leading-[1.1]">
+                  I turn raw <span className="text-emerald-400">data</span> into stories that drive{" "}
+                  <span className="text-violet-400">impact</span>.
+                </h1>
+                <p className="mt-3 text-[color:var(--muted)] max-w-2xl">
+                  From signal to strategy: clear metrics, thoughtful experiments, and outcomes that matter. Alignment comes first, evidence follows, and product choices are tracked to adoption, retention, and revenue.
+                </p>
 
-                        <a
-                            href={CV_VIEW}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            data-gtag-event="cv_viewed"
-                            data-gtag-param-location="hero"
-                            data-gtag-param-variant="primary"
-                            data-gtag-param-target="cv_viewed"
-                            className="px-4 py-2 rounded-xl border border-[color:var(--border)] hover:bg-[color:var(--card)]"
-                          >
-                            View CV (PDF)
-                          </a>
-                      </div>
-
-                      {/* FIX: grid stats 2 kolom di mobile supaya gak sempit */}
-                      <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3 text-center">
-                        <div className="rounded-xl border border-[color:var(--border)] bg-[color:var(--card)] p-4">
-                          <div className="text-2xl font-bold text-emerald-400">8+ Years</div>
-                          <div className="text-xs opacity-80">Experience in Data Fields</div>
-                        </div>
-                        <div className="rounded-xl border border-[color:var(--border)] bg-[color:var(--card)] p-4">
-                          <div className="text-2xl font-bold text-emerald-400">↓60h/mo</div>
-                          <div className="text-xs opacity-80">Automated ELT & reporting</div>
-                        </div>
-                        <div className="rounded-xl border border-[color:var(--border)] bg-[color:var(--card)] p-4 col-span-2 sm:col-span-1">
-                          <div className="text-2xl font-bold text-emerald-400">5h → 1h</div>
-                          <div className="text-xs opacity-80">80% faster time-to-insight</div>
-                        </div>
-                      </div>
-                    </div>
-
-
-                    {/* Mobile / tablet: tampil di bawah teks, ukuran lebih kecil */}
-                    <div className="mt-8 flex justify-center lg:hidden pointer-events-none select-none">
-                      <MethodologyCycleSVG
-                        size={300} // ~280–320 cocok untuk hp
-                        methodName="Signal → Strategy Cycle"
-                        accent="#22c55e"
-                        startAccent="#8b5cf6"
-                      />
-                    </div>
-
-                    {/* Desktop: di kolom kanan dengan ukuran penuh */}
-                    <div className="hidden lg:flex justify-center lg:justify-end pointer-events-none select-none">
-                      <MethodologyCycleSVG
-                        size={520}
-                        methodName="Signal → Strategy Cycle"
-                        accent="#22c55e"
-                        startAccent="#8b5cf6"
-                      />
-                    </div>
-
-                  </div>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <a
+                    href="#projects"
+                    data-gtag-event="explore_worked_viewed"
+                    data-gtag-param-location="hero"
+                    data-gtag-param-variant="primary"
+                    data-gtag-param-target="section_viewed"
+                    className="px-4 py-2 rounded-xl bg-gradient-to-r from-teal-400 to-violet-500 font-semibold"
+                  >
+                    Explore Work
+                  </a>
+                  <a
+                    href="#contact"
+                    data-gtag-event="contact_viewed"
+                    data-gtag-param-location="hero"
+                    data-gtag-param-variant="primary"
+                    data-gtag-param-target="section_viewed"
+                    className="px-4 py-2 rounded-xl frost border border-[color:var(--border)]"
+                  >
+                    Contact
+                  </a>
+                  <a
+                    href={CV_VIEW}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-gtag-event="cv_viewed"
+                    data-gtag-param-location="hero"
+                    data-gtag-param-variant="primary"
+                    data-gtag-param-target="cv_viewed"
+                    className="px-4 py-2 rounded-xl border border-[color:var(--border)] hover:bg-[color:var(--card)]"
+                  >
+                    View CV (PDF)
+                  </a>
                 </div>
 
-                <BackToTop targetId="scroller" />
-              </section>
+                {/* Stats: 2 columns on mobile, 3 from sm */}
+                <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3 text-center">
+                  <div className="rounded-xl border border-[color:var(--border)] bg-[color:var(--card)] p-4">
+                    <div className="text-2xl font-bold text-emerald-400">10+ Years</div>
+                    <div className="text-xs opacity-80">Experience in Data Fields</div>
+                  </div>
+                  <div className="rounded-xl border border-[color:var(--border)] bg-[color:var(--card)] p-4">
+                    <div className="text-2xl font-bold text-emerald-400">↓60h/mo</div>
+                    <div className="text-xs opacity-80">Automated ELT & reporting</div>
+                  </div>
+                  <div className="rounded-xl border border-[color:var(--border)] bg-[color:var(--card)] p-4 col-span-2 sm:col-span-1">
+                    <div className="text-2xl font-bold text-emerald-400">5h → 1h</div>
+                    <div className="text-xs opacity-80">80% faster time-to-insight</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Mobile / tablet: below the text, smaller */}
+              <div className="mt-8 flex justify-center lg:hidden pointer-events-none select-none">
+                <MethodologyCycleSVG
+                  size={300}
+                  methodName="Signal → Strategy Cycle"
+                  accent="#22c55e"
+                  startAccent="#8b5cf6"
+                />
+              </div>
+
+              {/* Desktop: right column, full size */}
+              <div className="hidden lg:flex justify-center lg:justify-end pointer-events-none select-none">
+                <MethodologyCycleSVG
+                  size={520}
+                  methodName="Signal → Strategy Cycle"
+                  accent="#22c55e"
+                  startAccent="#8b5cf6"
+                />
+              </div>
+            </div>
+          </div>
+
+          <BackToTop targetId="scroller" />
+        </section>
 
         {/* ===== ABOUT ===== */}
         <section id="about" className="snap-start min-h-screen flex items-start pt-20 sm:pt-24 pb-16">
@@ -276,22 +307,17 @@ export default function HomePage() {
               <div className="grid md:grid-cols-[minmax(220px,280px),1fr] lg:grid-cols-[320px,1fr] gap-8 items-start">
                 <img
                   loading="lazy"
-                  src="https://media.licdn.com/dms/image/v2/D5603AQEtK7MvSGPaMw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1731997776943?e=1795651200&v=beta&t=620v0LNXednMXfE4Y5TG3SY-ohhPZdK4s5zCpsDH86Y"
-                  alt="Profile"
-                  className="
-                    rounded-2xl border border-[color:var(--border)]
-                    w-full
-                    md:h-[280px] lg:h-[320px]
-                    object-cover object-[50%_10%]
-                  "
+                  src={IMG.profile_pic.me.src}
+                  alt="Afandi profile photo"
+                  className="rounded-2xl border border-[color:var(--border)] w-full md:h-[280px] lg:h-[320px] object-cover object-[50%_10%]"
                 />
               </div>
 
               <article className="rounded-2xl frost bg-[color:var(--card)] border border-[color:var(--border)] p-6">
                 <h2 className="text-3xl font-bold">About Me</h2>
                 <p className="mt-3 opacity-90">
-                  Started in scrappy startups, building the first versions of tracking, metrics, dashboards, and automated reporting for chatbots and consumer apps. 
-                  <br /><br />Then stepped up to lead analytics for a national program, rebuilding event tracking, tightening data quality, and shipping A/B tests with clear guardrails so results hold up. The work turned messy pipelines into reliable, decision-ready data. 
+                  Started in scrappy startups, building the first versions of tracking, metrics, dashboards, and automated reporting for chatbots and consumer apps.
+                  <br /><br />Then stepped up to lead analytics for a national program, rebuilding event tracking, tightening data quality, and shipping A/B tests with clear guardrails so results hold up. The work turned messy pipelines into reliable, decision-ready data.
                   <br /><br />Today the focus is where data, product, and operations meet: crisp shared metrics, disciplined experiments, and lean, cost-aware data ops. So teams can move fast with confidence.
                 </p>
 
@@ -310,18 +336,21 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* ===== TIMELINE ===== */}
         <section id="timeline" className="snap-start min-h-screen flex items-start pt-20 sm:pt-24 pb-16">
           <div className="max-w-7xl mx-auto px-6 w-full">
             <TimelineSkills items={TL} allSkills={ALL_SKILLS} skillsByIndex={SKILLS_BY_INDEX} />
           </div>
         </section>
 
+        {/* ===== PROJECTS ===== */}
         <section id="projects" className="snap-start min-h-screen flex items-start pt-20 sm:pt-24 pb-16">
           <div className="max-w-7xl mx-auto px-6 w-full">
             <HomeProjectsGridSimple projects={allProjects} />
           </div>
         </section>
 
+        {/* ===== CONTACT ===== */}
         <section id="contact" className="snap-start min-h-screen flex items-start pt-20 sm:pt-24 pb-16">
           <div className="max-w-7xl mx-auto px-6">
             <ContactSimple
@@ -332,41 +361,15 @@ export default function HomePage() {
                 { label: "X", href: "https://x.com/hifandii" },
                 { label: "Instagram", href: "https://www.instagram.com/fandifandii" },
                 { label: "CV", href: CV_DOWNLOAD },
-                // Tambah WhatsApp (override event & param GA)
-                /* {
-                  label: "WhatsApp",
-                  href: "https://wa.me/62?text=Hi%20Afandi%2C%20saya%20lihat%20portfolio%20Anda...",
-                  gtagEvent: "outbound_click",
-                  gtagParamLocation: "contact_page",
-                  gtagParamVariant: "link",
-                }, */
-                // // Tambah Calendly (override event & param GA)
-                /*
-                {
-                  label: "Calendly",
-                  href: "https://calendly.com/afandi/30min",
-                  gtagEvent: "outbound_click",
-                  gtagParamLocation: "contact_page",
-                  gtagParamVariant: "primary",
-                },
-                */
-                
               ]}
             />
-            
-
-            {/* <footer className="mt-10 text-xs text-[color:var(--muted)]">
-              © {new Date().getFullYear()} Afandi | <a href="https://hits.sh/fandifandi.github.io/cv/"><img alt="Hits" src="https://hits.sh/fandifandi.github.io/cv.svg?color=00fffa&labelColor=5ec09d"/></a>
-            </footer> */}
           </div>
         </section>
 
-      <section className="pt-2">
-        <Footer />
-      </section>
+        <section className="pt-2">
+          <Footer />
+        </section>
       </main>
-      
     </>
-    
   );
 }
