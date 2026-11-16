@@ -1,7 +1,8 @@
 // next.config.js
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === "production"; 
-const base = isProd ? "/cv" : "";                     
+// basePath sama di dev & prod supaya path "/cv/assets/..." di data jalan di keduanya.
+// Dev: buka http://localhost:3000/cv/
+const base = "/cv";
 
 module.exports = {
   output: "export",

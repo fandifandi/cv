@@ -13,10 +13,13 @@ export const dynamic = "force-static";
 export const dynamicParams = false;
 
 
+// Slug yang tidak dipakai project mana pun; dipakai kalau semua project punya halaman custom,
+// karena output:"export" menolak generateStaticParams yang kosong. Halamannya notFound().
+const PLACEHOLDER_SLUG = "_generic";
+
 export function generateStaticParams() {
-  return slugs
-    .filter((s) => !CUSTOM_SLUGS.includes(s)) // ← keluarkan slug custom
-    .map((slug) => ({ slug }));
+  const generic = slugs.filter((s) => !CUSTOM_SLUGS.includes(s)); // ← keluarkan slug custom
+  return (generic.length ? generic : [PLACEHOLDER_SLUG]).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {

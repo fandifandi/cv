@@ -211,55 +211,37 @@ const data: Project[] = [
     },
   },
   {
-    title: "Coming Soon - Data App",
-    slug: "static-project",
-    excerpt: "The Prakerja Statistics website provides data on the program's implementation from 2020 to 2024, covering participant demographics, training options, and incentive distribution, showcasing its impact on workforce development in Indonesia.",
-    tags: ["Data Visualization","Python","Airflow","AnalyticDB","GeoJSON"],
-    year: 2024,
-    cover: "https://raw.githubusercontent.com/Kartu-Prakerja/laporan-penerima/main/img/img-cover-statistik-prakerja.png",
-    featured: false,
+    title: "Dashboard Perlinsos",
+    slug: "dashboard-perlinsos",
+    excerpt: "A map-first national analytics platform for Indonesia's social-assistance registration — tracking coverage against population, agent activity, and BPNT/PKH eligibility from 38 provinces down to individual villages, with a privacy-safe public view.",
+    tags: ["Data Visualization", "Dashboard", "GeoJSON", "Public Sector"],
+    year: 2026,
+    cover: "/cv/assets/dashboard-perlinsos/perlinsos-cover.webp",
+    featured: true,
     detail: {
-      client: "Internal Ops",
+      // TODO(draft): konfirmasi client, roles & stack sebenarnya
+      client: "KPDTP",
       roles: [],
-      stackExtra: ["Kepler.gl", "BigQuery"],
+      stackExtra: [],
       responsibilities: [
-        "Data model untuk event geospasial",
-        "Layer heatmap/density + time window",
-        "Guardrail biaya BQ (partisi & cluster)",
+        "Defined registration, coverage, and eligibility metrics with stakeholders",
+        "Designed a five-level, map-first drill-down from national to village",
+        "Built coverage-vs-population rankings against a 50% projection target",
+        "Visualized registrations by channel and agents by role across every region",
+        "Surfaced BPNT & PKH eligibility outcomes per region, with CSV export",
+        "Shipped a public landing with admin-controlled, privacy-safe publishing",
       ],
-      metrics: [
-        { label: "TAT insight", value: "−4 hari" },
-        { label: "Query cost", value: "−28%" },
-      ],
-      sections: {
-        problem:
-          "Operasional butuh peta permintaan real-time ringan untuk alokasi armada.",
-        goals: [
-          "G1 — Update tiles tiap 15 menit",
-          "G2 — < 1s interaksi panning/zoom",
-        ],
-        approach: [
-          "Pre-aggregation hourly + cache tiles.",
-          "Deck.gl layers untuk interaksi ringan.",
-        ],
-        results: [
-          "Dispatch berhasil kurangi wait time p95 sebesar 9%.",
-          "Dashboard dipakai 3 tim (ops, CX, growth).",
-        ],
-        learnings: [
-          "Pre-agg lebih hemat daripada kueri mentah per interaksi.",
-          "UX peta perlu throttling pointermove untuk low-end device.",
-        ],
-      },
       gallery: [
-        "https://uce3baf08fa0e76d731c72febd9f.previews.dropboxusercontent.com/p/thumb/ACykmBjCiXp4aGM28nzv5BWf0S0GYbGkVxpcJwOzhDeSApLYYDNtF7RmosOj8n0eEgcmcjEsUn12E3HG0rW9dtYsBw8FMc1TDULdTF_5WP-o5lI_fEx6Dk96NR9cYt6xbho3CRZGxYV8vO16m_sAVCT6P6R-dM4S5jICm60nn6C9I1X8iZoTzWWDlBAH7arEcRNa3C_2oae4faVwLJTdIcQW9xicpvIkSSHUV5lp0pIXoYdv6j-KedmDZ9skc_V7AiMR5XSVlP3m5GCT0hNSuaP2a1aRWcteqRMw62YcyJlD_PJaHErenj3UBSKDHqic6t2Sx7DmUGzYa0w1y3H6-kTXxSJ3W468ZNv3u0VjaMW3BRipLxZiFbzmKRT6QzSwkZg/p.png?is_prewarmed=true"
-        ,"https://uc108c623bc05d368f5213e60f18.previews.dropboxusercontent.com/p/thumb/ACyG3WJKwGIdtojwHdsQB7kw9ceRSCNRtgFXm7PHt3eQ-3xhsIVM7YqXwzCwknMuudKHnU__RGnS0D74W6qZkPDw4J3NgLXsczsDpR0ngbBzvz7ENhhKakw-7s7h0f4PYsFPOUAjBlGnmeRftMf36ObNC-8rngR73eD-wP1cy8SULoUO2T2sCS0vMtoZCs3hLEy7ENvPDeXf7oF9iuLjCI0j4eybkHSBG9DCNe-RlFUiVy6zSEKfZ5SYxU4UzY-HlwryjMSihmqTsGlYAKPmWltDsUE027HViWCXdYH_aDbO4l3L9s--ocZm5JOwvMitc0BIMfowiBLOCCjP1gFNtL2d9Sh5y_J1NUSdDAp5cTvZSoaizEoGD6G7NgwK6SCMGww/p.png?is_prewarmed=true"
-        ,"https://uc398f3f626cef62ae7fac22255a.previews.dropboxusercontent.com/p/thumb/ACyzGTMj2df_8fhm-SZkbmR3QSaG79WAhsSzMBrFyaDlh24osdbHf_xy2cVBww1uQgnXRP162HQEqpTawLsE4ruuRwcDvv_rMZPddtiMhb5fzQH6J7k5g3cKHSqvmSHkprUF5NXvlsq09ZfhNqAR3CNgmdK0cmoazx7pBPFCcdwPClKRh-IAnGaJQGm8VToWDcY0UF3Bs1ejRljyw-YaLYLd5rQP5FDWzuf9loag9kZfLQHpwltkEjvwXi4_G2iRdPHQT4WWDDtKJrW87dwsl-cg0z5-gxTSFGsnvYQ4rBi2HkuxAqAVJBAb8M58MRUTwioUwMQWnzeffHGgsMd7RpDGTVyOQmncNT9bwnOrRpBrTohdq7XnMw0Z_U16lRAmGCM/p.png?is_prewarmed=true"
+        "/cv/assets/dashboard-perlinsos/perlinsos-nasional.webp",
+        "/cv/assets/dashboard-perlinsos/perlinsos-provinsi.webp",
+        "/cv/assets/dashboard-perlinsos/perlinsos-kotakab.webp",
+        "/cv/assets/dashboard-perlinsos/perlinsos-public.webp",
+        "/cv/assets/dashboard-perlinsos/perlinsos-preview-settings.webp",
       ],
       video: {
         mp4: "",
-        webm: "https://dikaseva.com/asset/works/statistik-prakerja/statistik-prakerja.webm",
-        poster: "https://dikaseva.com/asset/works/statistik-prakerja/thumb-statistik-prakerja-xs.webp",
+        webm: "/cv/assets/dashboard-perlinsos/perlinsos-public.webm",
+        poster: "/cv/assets/dashboard-perlinsos/perlinsos-public-poster.webp",
       },
     },
   }
